@@ -117,7 +117,7 @@ console.log(toggle);
             Study Flew Ship
           </Link>
         </div>
-        <div className="navbar-end flex flex-col gap-3 justify-end lg:flex-row">
+        <div className="navbar-end flex flex-col gap-2 justify-end lg:flex-row">
           <Link>
             {" "}
             <button className="btn btn-outline w-24 font-bold text-base lg:text-lg btn-success">
@@ -126,7 +126,7 @@ console.log(toggle);
           </Link>
           <Link>
             {" "}
-            <button className="btn  font-bold text-base lg:text-lg  btn-accent mx-0 lg:mx-5 ">
+            <button className="btn  font-bold text-base lg:text-lg  btn-accent mx-0 lg:mx-5 mb-1 lg:mb-0 ">
               Register
             </button>
           </Link>

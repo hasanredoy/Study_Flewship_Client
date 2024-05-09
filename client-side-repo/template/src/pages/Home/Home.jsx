@@ -1,4 +1,5 @@
 import Banner from "../../components/banner/Banner";
+import FeaturedSection from "../../components/featured/FeaturedSection";
 
 const Home = () => {
   return (
@@ -6,7 +7,9 @@ const Home = () => {
       <section>
         <Banner></Banner>
       </section>
-      this is home
+     <section>
+      <FeaturedSection></FeaturedSection>
+     </section>
     </div>
   );
 };
