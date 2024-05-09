@@ -52,9 +52,9 @@ const Navbar = () => {
 console.log(toggle);
   return (
     <div>
-      <div className="navbar bg-base-300">
-        <div className="navbar-start">
-          <div className="dropdown">
+      <div className="navbar bg-base-300 p-0 m-0">
+        <div className=" navbar-none lg:navbar-start flex flex-col justify-start lg:flex-row">
+          <div className="dropdown mr-5">
             <div
               tabIndex={0}
               role="button"
@@ -62,7 +62,7 @@ console.log(toggle);
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
+                className="h-6 w-6"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -83,7 +83,7 @@ console.log(toggle);
             </ul>
           </div>
           {/* dropdown for theme  */}
-          <div>
+          <div className=" mr-2 lg:mr-0 mt-0 lg:mt-2">
             <label onChange={()=>setToggle(!toggle) } className="swap swap-rotate">
               {/* this hidden checkbox controls the state */}
               <input
@@ -94,7 +94,7 @@ console.log(toggle);
 
               {/* sun icon */}
               <svg
-                className="swap-off fill-current w-10 h-10"
+                className="swap-off fill-current w-8 h-8"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
               >
@@ -103,7 +103,7 @@ console.log(toggle);
 
               {/* moon icon */}
               <svg
-                className="swap-on fill-current w-10 h-10"
+                className="swap-on fill-current w-8 h-8"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
               >
@@ -117,16 +117,16 @@ console.log(toggle);
             Study Flew Ship
           </a>
         </div>
-        <div className="navbar-end">
+        <div className="navbar-end flex flex-col gap-3 justify-end lg:flex-row">
           <Link>
             {" "}
-            <button className="btn btn-outline font-bold text-lg btn-success">
+            <button className="btn btn-outline w-24 font-bold text-base lg:text-lg btn-success">
               Login
             </button>
           </Link>
           <Link>
             {" "}
-            <button className="btn  font-bold text-lg  btn-accent mx-5 ">
+            <button className="btn  font-bold text-base lg:text-lg  btn-accent mx-0 lg:mx-5 ">
               Register
             </button>
           </Link>
