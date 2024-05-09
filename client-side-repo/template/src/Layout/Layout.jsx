@@ -4,10 +4,10 @@ import Footer from '../components/footer/Footer';
 const Layout = () => {
   return (
     <div>
-      <div>
+      <div className=' sticky top-0 z-50'>
         <Navbar></Navbar>
       </div>
-      <div>
+      <div className=' container mx-auto my-10'>
       <Outlet></Outlet>
       </div>
       <div>

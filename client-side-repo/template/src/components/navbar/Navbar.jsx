@@ -52,7 +52,7 @@ const Navbar = () => {
 console.log(toggle);
   return (
     <div>
-      <div className="navbar bg-base-300 p-0 m-0">
+      <div className="navbar bg-base-300 p-0 m-0 shadow-sm shadow-stone-400">
         <div className=" navbar-none lg:navbar-start flex flex-col justify-start lg:flex-row">
           <div className="dropdown mr-5">
             <div
