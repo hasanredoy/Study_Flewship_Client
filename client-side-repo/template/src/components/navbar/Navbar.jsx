@@ -113,9 +113,9 @@ console.log(toggle);
           </div>
         </div>
         <div className="navbar-center">
-          <a className="btn btn-ghost text-2xl font-black bg-gradient-to-l bg-clip-text text-transparent from-teal-400 via-zinc-400 to-lime-600">
+          <Link to={'/'} className="btn btn-ghost text-2xl font-black bg-gradient-to-l bg-clip-text text-transparent from-teal-400 via-zinc-400 to-lime-600">
             Study Flew Ship
-          </a>
+          </Link>
         </div>
         <div className="navbar-end flex flex-col gap-3 justify-end lg:flex-row">
           <Link>
