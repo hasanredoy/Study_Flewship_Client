@@ -6,65 +6,77 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../authProvider/AuthProvider";
 
 const Navbar = () => {
-  const [toggle , setToggle]=useState(true)
-  
+  const [toggle, setToggle] = useState(true);
+
   const { user, logOut } = useContext(AuthContext);
 
-  if(toggle){
-    document.querySelector('html').setAttribute('data-theme','light')
+  if (toggle) {
+    document.querySelector("html").setAttribute("data-theme", "light");
   }
-  if(!toggle){
-    document.querySelector('html').setAttribute('data-theme','dark')
+  if (!toggle) {
+    document.querySelector("html").setAttribute("data-theme", "dark");
   }
   const links = (
     <>
-     {user?<>
-      <>
-        <NavLink className={"flex justify-center hover:bg-slate-200 "} to={"/"}>
-          Home
-        </NavLink>
-      </>
-      <>
-        <NavLink
-          className={"flex justify-center hover:bg-slate-200 "}
-          to={"/assignments"}
-        >
-          Assignments
-        </NavLink>
-      </> 
-       <>
-        <NavLink
-          className={"flex justify-center hover:bg-slate-200 "}
-          to={"/createAssignments"}
-        >
-          Create Assignments
-        </NavLink>
-      </>
-      <>
-        <NavLink
-          className={"flex justify-center hover:bg-slate-200 "}
-          to={"/pendingAssignments"}
-        >
-          Pending Assignments
-        </NavLink>
-      </>
-     </>:<> <>
-        <NavLink className={"flex justify-center hover:bg-slate-200 "} to={"/"}>
-          Home
-        </NavLink>
-      </>
-      <>
-        <NavLink
-          className={"flex justify-center hover:bg-slate-200 "}
-          to={"/assignments"}
-        >
-          Assignments
-        </NavLink>
-      </></>}
-    
+      {user ? (
+        <>
+          <>
+            <NavLink
+              className={"flex justify-center hover:bg-slate-200 "}
+              to={"/"}
+            >
+              Home
+            </NavLink>
+          </>
+          <>
+            <NavLink
+              className={"flex justify-center hover:bg-slate-200 "}
+              to={"/assignments"}
+            >
+              Assignments
+            </NavLink>
+          </>
+          <>
+            <NavLink
+              className={"flex justify-center hover:bg-slate-200 "}
+              to={"/createAssignments"}
+            >
+              Create Assignments
+            </NavLink>
+          </>
+          <>
+            <NavLink
+              className={"flex justify-center hover:bg-slate-200 "}
+              to={"/pendingAssignments"}
+            >
+              Pending Assignments
+            </NavLink>
+          </>
+        </>
+      ) : (
+        <>
+          {" "}
+          <>
+            <NavLink
+              className={"flex justify-center hover:bg-slate-200 "}
+              to={"/"}
+            >
+              Home
+            </NavLink>
+          </>
+          <>
+            <NavLink
+              className={"flex justify-center hover:bg-slate-200 "}
+              to={"/assignments"}
+            >
+              Assignments
+            </NavLink>
+          </>
+        </>
+      )}
     </>
   );
-console.log(toggle);
+  console.log(toggle);
   return (
     <div>
       <div className="navbar bg-base-300 p-0 m-0 shadow-sm shadow-stone-400">
@@ -99,7 +111,10 @@ console.log(toggle);
           </div>
           {/* dropdown for theme  */}
           <div className=" mr-2 lg:mr-0 mt-0 lg:mt-2">
-            <label onChange={()=>setToggle(!toggle) } className="swap swap-rotate">
+            <label
+              onChange={() => setToggle(!toggle)}
+              className="swap swap-rotate"
+            >
               {/* this hidden checkbox controls the state */}
               <input
                 type="checkbox"
@@ -128,33 +143,47 @@ console.log(toggle);
           </div>
         </div>
         <div className="navbar-center">
-          <Link to={'/'} className="btn btn-ghost text-2xl font-black bg-gradient-to-l bg-clip-text text-transparent from-teal-400 via-zinc-400 to-lime-600">
+          <Link
+            to={"/"}
+            className="btn btn-ghost text-2xl font-black bg-gradient-to-l bg-clip-text text-transparent from-teal-400 via-zinc-400 to-lime-600"
+          >
             Study Flew Ship
           </Link>
         </div>
-        <div className="navbar-end flex flex-col gap-2 justify-end md:flex-row">
-         {
-          user?
-          <>
-          <div className="avatar online mr-3">
-  <div className="w-20 rounded-full">
-    <img src={user?.photoURL||user.displayName[1]}/>
-  </div>
-</div>
-          </>:
-          <> <Link to={'/login'}>
-          {" "}
-          <button className="btn btn-outline w-24 font-bold text-base lg:text-lg btn-success">
-            Login
-          </button>
-        </Link>
-        <Link to={'/register'}>
-          {" "}
-          <button className="btn  font-bold text-base lg:text-lg  btn-accent mx-0 lg:mx-5 mb-1 lg:mb-0 ">
-            Register
-          </button>
-        </Link></>
-         }
+        <div className="navbar-end flex flex-col gap-2 justify-end md:flex-row ">
+          {user ? (
+            <div tabIndex={0} role="button" className=" dropdown-bottom dropdown relative" >
+              <div className="avatar online mr-3">
+                <div className="w-20 rounded-full">
+                  <img src={user?.photoURL || user.displayName[1]} />
+                </div>
+              </div>
+             
+
+  <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-200 rounded-box w-64 absolute -left-48">
+    <li className=" "><h1 className="font-bold text-xl flex flex-row gap-2">Hi<span>{user?.displayName}</span></h1></li>
+    <li><Link>My Attempted Assignments</Link></li>
+    <li><a>Item 2</a></li>
+  </ul>
+
+            </div>
+          ) : (
+            <>
+              {" "}
+              <Link to={"/login"}>
+                {" "}
+                <button className="btn btn-outline w-24 font-bold text-base lg:text-lg btn-success">
+                  Login
+                </button>
+              </Link>
+              <Link to={"/register"}>
+                {" "}
+                <button className="btn  font-bold text-base lg:text-lg  btn-accent mx-0 lg:mx-5 mb-1 lg:mb-0 ">
+                  Register
+                </button>
+              </Link>
+            </>
+          )}
         </div>
       </div>
     </div>
