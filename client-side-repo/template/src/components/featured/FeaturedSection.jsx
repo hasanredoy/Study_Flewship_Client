@@ -10,7 +10,7 @@ const FeaturedSection = () => {
       setData(res.data)
     })
   },[])
-  console.log(data);
+  // console.log(data);
   return (
     <div className=" my-10">
     {/* text div  */}
