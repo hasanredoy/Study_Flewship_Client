@@ -1,16 +1,17 @@
 import { useContext } from "react";
 import { AuthContext } from "../../authProvider/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
-
+import './assignmet.css'
 // date picker
 import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
+import useAxiosUrl from "../../hooks/useAxiosUrl";
 
 const CreateAssignment = () => {
   const [startDate, setStartDate] = useState(new Date());
-
+   const axiosUrl = useAxiosUrl()
   const { user } = useContext(AuthContext);
   console.log(user);
   const handleForm = (e) => {
@@ -32,35 +33,40 @@ const CreateAssignment = () => {
       email: user?.email
     };
 console.log(assignmentData);
-    // fetch(
-    //   "https://pottery-and-ceramics-hub.vercel.app/allassignmentData",
-    //   {
-    //     method: "POST",
-    //     headers: {
-    //       "content-type": "application/json",
-    //     },
-    //     body: JSON.stringify(assignmentData),
-    //   }
-    // )
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     console.log(data);
-    //     if (data.insertedId) {
-    //       toast.success('Added Successfully')
+    axiosUrl.post('/assignments' , assignmentData)
+    //   
+      .then(res => {
+        console.log(res.data);
+        if (res.data?.insertedId) {
+          toast.success('Added Successfully')
 
-    //       }
-    //     });
+          }
+        });
   };
 
   return (
     <div>
-      <div className=" bg-stone-400 my-9 rounded-md">
+      <div className=" bg-base-300 my-9 rounded-md">
         <h1 className=" text-3xl font-bold text-center py-5 ">
-          Add Some Art And Crafts{" "}
+         Create an Assignment ?{" "}
         </h1>
         <form onSubmit={handleForm} className="card-body">
           {/* 1 row  */}
           <div className=" flex flex-col lg:flex-row gap-5 w-full ">
+           
+              {/* title */}
+              <div className="form-control  w-full">
+              <label className="label">
+                <span className="text-xl font-bold">Title</span>
+              </label>
+              <input
+                type="text"
+                placeholder="Title"
+                className="input input-bordered bg-white text-black w-full"
+                required
+                name="title"
+              />
+            </div>
             {/* photo  */}
             <div className="form-control md:w-full">
               <label className="label">
@@ -69,24 +75,12 @@ console.log(assignmentData);
               <input
                 type="url"
                 placeholder="URL"
-                className="input input-bordered bg-white w-full"
+                className="input input-bordered bg-white text-black w-full"
                 required
                 name="photo"
               />
             </div>
-            {/* title */}
-            <div className="form-control  w-full">
-              <label className="label">
-                <span className="text-xl font-bold">Title</span>
-              </label>
-              <input
-                type="text"
-                placeholder="Title"
-                className="input input-bordered bg-white w-full"
-                required
-                name="title"
-              />
-            </div>
+         
           </div>
 
           {/* 2 row */}
@@ -99,7 +93,7 @@ console.log(assignmentData);
               <input
                 type="text"
                 placeholder="Marks"
-                className="input input-bordered bg-white w-full"
+                className="input input-bordered bg-white text-black w-full"
                 required
                 name="marks"
               />
@@ -113,7 +107,7 @@ console.log(assignmentData);
               <input
                 type="text"
                 placeholder="Description"
-                className="input input-bordered bg-white w-full"
+                className="input input-bordered bg-white text-black w-full"
                 required
                 name="description"
               />
@@ -129,14 +123,16 @@ console.log(assignmentData);
               {/*<input
               type="number"
               placeholder="Price"
-              className="input input-bordered bg-white w-full"
+              className="input input-bordered bg-white text-black w-full"
               required
               name="price"
             /> */}
+              
               <DatePicker
                 selected={startDate}
                 onChange={(date) => setStartDate(date)}
               />
+            
             </div>
 
             {/* Difficulty Level*/}
@@ -145,7 +141,7 @@ console.log(assignmentData);
               <label className="label">
                 <span className="text-xl font-bold">Difficulty Level</span>
               </label>
-              <select name="levels" id="">
+              <select className="bg-white text-black py-2 rounded-md" name="levels" id="">
                 <option value="Easy">Easy</option>
                 <option value="Medium">Medium</option>
                 <option value="Hard">Hard</option>
@@ -153,8 +149,8 @@ console.log(assignmentData);
             </div>
           </div>
           <div className="form-control mt-6">
-            <button type="submit" className="btn btn-block">
-              Add{" "}
+            <button type="submit" className="btn btn-success btn-block">
+              Create Assignment{" "}
             </button>
           </div>
         </form>
