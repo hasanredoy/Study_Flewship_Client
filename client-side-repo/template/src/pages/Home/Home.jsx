@@ -1,3 +1,4 @@
+import Benefits from "../../components/BenefitsOfOnlineStudy/Benefits";
 import FAQ from "../../components/FaQ/FAQ";
 import Banner from "../../components/banner/Banner";
 import FeaturedSection from "../../components/featured/FeaturedSection";
@@ -13,6 +14,9 @@ const Home = () => {
      </section>
      <section>
       <FAQ></FAQ>
+     </section>
+     <section>
+      <Benefits></Benefits>
      </section>
     </div>
   );

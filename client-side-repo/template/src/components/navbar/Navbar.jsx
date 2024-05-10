@@ -53,7 +53,7 @@ console.log(toggle);
   return (
     <div>
       <div className="navbar bg-base-300 p-0 m-0 shadow-sm shadow-stone-400">
-        <div className=" navbar-none lg:navbar-start flex flex-col justify-start lg:flex-row">
+        <div className=" navbar-none md:navbar-start flex flex-col justify-start md:flex-row">
           <div className="dropdown mr-5">
             <div
               tabIndex={0}
@@ -117,7 +117,7 @@ console.log(toggle);
             Study Flew Ship
           </Link>
         </div>
-        <div className="navbar-end flex flex-col gap-2 justify-end lg:flex-row">
+        <div className="navbar-end flex flex-col gap-2 justify-end md:flex-row">
           <Link>
             {" "}
             <button className="btn btn-outline w-24 font-bold text-base lg:text-lg btn-success">
