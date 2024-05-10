@@ -120,13 +120,7 @@ console.log(assignmentData);
               <label className="label">
                 <span className="text-xl font-bold">Due Date</span>
               </label>
-              {/*<input
-              type="number"
-              placeholder="Price"
-              className="input input-bordered bg-white text-black w-full"
-              required
-              name="price"
-            /> */}
+           
               
               <DatePicker
                 selected={startDate}

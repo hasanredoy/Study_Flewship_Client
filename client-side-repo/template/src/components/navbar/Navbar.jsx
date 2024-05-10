@@ -163,7 +163,7 @@ const Navbar = () => {
         <div className="navbar-end flex flex-col gap-2 justify-end md:flex-row ">
           {user ? (
             <div tabIndex={0} role="button" className=" dropdown-bottom dropdown relative pt-1  "  >
-              <div className="avatar online mr-3">
+              <div className="avatar online mr-0 md:mr-3">
                 <div  className="w-16 rounded-full"  >
                   <img src={user?.photoURL || user.displayName[1]} />
                 </div>

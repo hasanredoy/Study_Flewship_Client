@@ -16,7 +16,7 @@ const FAQ = () => {
        <div className=" w-full lg:w-[45%] ">
        <img
             src="https://cdn.pixabay.com/photo/2022/02/02/10/56/questions-6988157_640.png"
-            className=" rounded-lg shadow-2xl w-full "
+            className=" rounded-lg shadow-2xl h-full w-full "
           />
        </div>
           <div className=" w-full lg:w-[50%] ">

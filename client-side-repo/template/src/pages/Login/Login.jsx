@@ -39,7 +39,7 @@ const Login = () => {
         console.log(res.user);
 
         console.log(location);
-        toast.success("Registered Successfully");
+        toast.success("Logged In Successfully");
        
         // navigate(location?.state?location.state:setTimeout(()=>{
         //   navigate('/')
