@@ -118,13 +118,13 @@ console.log(toggle);
           </Link>
         </div>
         <div className="navbar-end flex flex-col gap-2 justify-end md:flex-row">
-          <Link>
+          <Link to={'/login'}>
             {" "}
             <button className="btn btn-outline w-24 font-bold text-base lg:text-lg btn-success">
               Login
             </button>
           </Link>
-          <Link>
+          <Link to={'/register'}>
             {" "}
             <button className="btn  font-bold text-base lg:text-lg  btn-accent mx-0 lg:mx-5 mb-1 lg:mb-0 ">
               Register
