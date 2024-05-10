@@ -80,7 +80,7 @@ const Login = () => {
     >
       
        
-      <div className="card shrink-0 shadow-2xl  w-full h-full  lg:w-1/2 bg-gradient-to-tr from-lime-100 via-slate-50 to-indigo-100">
+      <div className="card shrink-0 shadow-2xl  w-full h-full  lg:w-1/2 bg-base-300">
         <h2 className=" font-bold text-3xl text-center pt-4"> Please Login!</h2>
         <form onSubmit={handleLogin} className="card-body">
           <div className="form-control">
@@ -90,7 +90,7 @@ const Login = () => {
             <input
               type="email"
               placeholder="Email"
-              className="input input-bordered bg-white"
+              className="input input-bordered bg-white text-black"
               required
               name="email"
             />
@@ -102,21 +102,21 @@ const Login = () => {
             <input
               type={eye ? "password" : "text"}
               placeholder="Password"
-              className="input input-bordered  bg-white"
+              className="input input-bordered bg-white text-black"
               required
               name="password"
             />
             {eye ? (
               <span
                 onClick={() => setEey(!eye)}
-                className=" text-2xl absolute top-14 right-4"
+                className=" text-2xl absolute top-14 right-4 text-black"
               >
                 <FaEye></FaEye>
               </span>
             ) : (
               <span
                 onClick={() => setEey(!eye)}
-                className=" text-2xl absolute top-14 right-4"
+                className=" text-2xl absolute top-14 right-4 text-black"
               >
                 <FaEyeSlash></FaEyeSlash>
               </span>

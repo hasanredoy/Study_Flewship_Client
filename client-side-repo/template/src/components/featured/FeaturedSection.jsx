@@ -1,12 +1,16 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import useAxiosUrl from "../../hooks/useAxiosUrl";
+import { AuthContext } from "../../authProvider/AuthProvider";
 
 const FeaturedSection = () => {
   const axiosUrl = useAxiosUrl()
+  const {loading , setLoading}=useContext(AuthContext)
   const [data , setData ]= useState([])
   useEffect(()=>{
+    setLoading(true)
     axiosUrl.get('/features')
     .then(res=> {
+      setLoading(false)
       setData(res.data)
     })
   },[])

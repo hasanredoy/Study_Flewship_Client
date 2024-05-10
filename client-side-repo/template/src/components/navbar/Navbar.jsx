@@ -4,6 +4,9 @@ import { IoMdSunny } from "react-icons/io";
 import { HiMoon } from "react-icons/hi";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../authProvider/AuthProvider";
+import { IoIosLogOut } from "react-icons/io";
+
+
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(true);
@@ -15,6 +18,12 @@ const Navbar = () => {
   }
   if (!toggle) {
     document.querySelector("html").setAttribute("data-theme", "dark");
+  }
+
+  const handleLogout = ()=>{
+    logOut()
+    .then()
+    .catch()
   }
   const links = (
     <>
@@ -113,7 +122,8 @@ const Navbar = () => {
           <div className=" mr-2 lg:mr-0 mt-0 lg:mt-2">
             <label
               onChange={() => setToggle(!toggle)}
-              className="swap swap-rotate"
+             
+              className="swap swap-rotate "
             >
               {/* this hidden checkbox controls the state */}
               <input
@@ -152,18 +162,19 @@ const Navbar = () => {
         </div>
         <div className="navbar-end flex flex-col gap-2 justify-end md:flex-row ">
           {user ? (
-            <div tabIndex={0} role="button" className=" dropdown-bottom dropdown relative" >
+            <div tabIndex={0} role="button" className=" dropdown-bottom dropdown relative pt-1  "  >
               <div className="avatar online mr-3">
-                <div className="w-20 rounded-full">
+                <div  className="w-16 rounded-full"  >
                   <img src={user?.photoURL || user.displayName[1]} />
                 </div>
               </div>
              
 
-  <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-200 rounded-box w-64 absolute -left-48">
-    <li className=" "><h1 className="font-bold text-xl flex flex-row gap-2">Hi<span>{user?.displayName}</span></h1></li>
-    <li><Link>My Attempted Assignments</Link></li>
-    <li><a>Item 2</a></li>
+  <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-200 rounded-box w-64 absolute -left-48 space-y-3">
+    <li className=" "><h1 className="font-bold text-xl flex flex-row gap-2">Hi<span className=" text-purple-600">{user?.displayName}</span></h1></li>
+    <hr />
+    <li><Link className="font-bold" to={'/myAssignments'}>My Attempted Assignments</Link></li>
+    <li><button onClick={handleLogout} className=" btn btn-warning">LogOut<IoIosLogOut></IoIosLogOut> </button></li>
   </ul>
 
             </div>
