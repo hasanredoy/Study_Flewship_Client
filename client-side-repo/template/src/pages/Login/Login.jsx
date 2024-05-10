@@ -5,6 +5,7 @@ import { FcGoogle } from "react-icons/fc";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import Navbar from "../../components/navbar/Navbar";
+import Footer from "../../components/footer/Footer";
 
 
 const Login = () => {
@@ -63,7 +64,9 @@ const Login = () => {
 
   return (
     <div>
-       <Navbar></Navbar>
+       <div className=" sticky top-0 z-50">
+  <Navbar></Navbar>
+  </div>
       <div
       className=" bg-base-200
   w-full flex justify-center items-center py-5 "
@@ -134,7 +137,9 @@ const Login = () => {
       </div>
       <ToastContainer></ToastContainer>
     </div>
-    
+    <div>
+    <Footer></Footer>
+  </div>
     </div>
   );
 };
