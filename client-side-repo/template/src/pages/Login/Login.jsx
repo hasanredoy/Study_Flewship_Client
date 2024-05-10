@@ -1,11 +1,13 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../../authProvider/AuthProvider";
-import {toast , ToastContainer} from 'react-toast'
+import {toast , ToastContainer} from 'react-toastify'
 import { FcGoogle } from "react-icons/fc";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import Navbar from "../../components/navbar/Navbar";
 import Footer from "../../components/footer/Footer";
+import 'react-toastify/dist/ReactToastify.css';
+import { Helmet } from "react-helmet";
 
 
 const Login = () => {
@@ -64,6 +66,11 @@ const Login = () => {
 
   return (
     <div>
+       <Helmet>
+                
+                <title>Study Flewship | Login</title>
+                
+            </Helmet>
        <div className=" sticky top-0 z-50">
   <Navbar></Navbar>
   </div>

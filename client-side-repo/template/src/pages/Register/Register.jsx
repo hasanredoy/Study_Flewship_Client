@@ -54,6 +54,11 @@ const    handleRegister = (e) => {
 };
 return (
 <div>
+<Helmet>
+                
+                <title>Study Flewship | Register</title>
+                
+            </Helmet>
   <div className=" sticky top-0 z-50">
   <Navbar></Navbar>
   </div>

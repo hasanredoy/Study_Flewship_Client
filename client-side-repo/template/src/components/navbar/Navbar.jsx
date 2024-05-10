@@ -18,6 +18,7 @@ const Navbar = () => {
   }
   const links = (
     <>
+     {user?<>
       <>
         <NavLink className={"flex justify-center hover:bg-slate-200 "} to={"/"}>
           Home
@@ -30,8 +31,8 @@ const Navbar = () => {
         >
           Assignments
         </NavLink>
-      </>
-      <>
+      </> 
+       <>
         <NavLink
           className={"flex justify-center hover:bg-slate-200 "}
           to={"/createAssignments"}
@@ -47,6 +48,20 @@ const Navbar = () => {
           Pending Assignments
         </NavLink>
       </>
+     </>:<> <>
+        <NavLink className={"flex justify-center hover:bg-slate-200 "} to={"/"}>
+          Home
+        </NavLink>
+      </>
+      <>
+        <NavLink
+          className={"flex justify-center hover:bg-slate-200 "}
+          to={"/assignments"}
+        >
+          Assignments
+        </NavLink>
+      </></>}
+    
     </>
   );
 console.log(toggle);
@@ -118,18 +133,28 @@ console.log(toggle);
           </Link>
         </div>
         <div className="navbar-end flex flex-col gap-2 justify-end md:flex-row">
-          <Link to={'/login'}>
-            {" "}
-            <button className="btn btn-outline w-24 font-bold text-base lg:text-lg btn-success">
-              Login
-            </button>
-          </Link>
-          <Link to={'/register'}>
-            {" "}
-            <button className="btn  font-bold text-base lg:text-lg  btn-accent mx-0 lg:mx-5 mb-1 lg:mb-0 ">
-              Register
-            </button>
-          </Link>
+         {
+          user?
+          <>
+          <div className="avatar online mr-3">
+  <div className="w-20 rounded-full">
+    <img src={user?.photoURL||user.displayName[1]}/>
+  </div>
+</div>
+          </>:
+          <> <Link to={'/login'}>
+          {" "}
+          <button className="btn btn-outline w-24 font-bold text-base lg:text-lg btn-success">
+            Login
+          </button>
+        </Link>
+        <Link to={'/register'}>
+          {" "}
+          <button className="btn  font-bold text-base lg:text-lg  btn-accent mx-0 lg:mx-5 mb-1 lg:mb-0 ">
+            Register
+          </button>
+        </Link></>
+         }
         </div>
       </div>
     </div>
