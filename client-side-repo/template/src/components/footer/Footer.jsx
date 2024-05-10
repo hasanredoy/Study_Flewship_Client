@@ -8,7 +8,7 @@ const Footer = () => {
   <Link to={'/'} className="btn btn-ghost text-2xl font-black bg-gradient-to-l bg-clip-text text-transparent from-teal-400 via-zinc-400 to-lime-600">
             Study Flew Ship
           </Link>
-    <p>All rights reserver &copy;|| by Hossain Hasan Redoy</p>
+    <p className=" text-lg">All rights reserver &copy;|| by Hossain Hasan Redoy</p>
   </aside> 
   <div>
     <h1 className=" text-2xl font-bold">Contact Us</h1>

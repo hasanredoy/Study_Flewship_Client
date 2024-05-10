@@ -1,3 +1,4 @@
+import FAQ from "../../components/FaQ/FAQ";
 import Banner from "../../components/banner/Banner";
 import FeaturedSection from "../../components/featured/FeaturedSection";
 
@@ -9,6 +10,9 @@ const Home = () => {
       </section>
      <section>
       <FeaturedSection></FeaturedSection>
+     </section>
+     <section>
+      <FAQ></FAQ>
      </section>
     </div>
   );
