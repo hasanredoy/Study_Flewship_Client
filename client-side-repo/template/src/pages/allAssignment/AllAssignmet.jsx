@@ -71,7 +71,7 @@ const AllAssignmet = () => {
             <h2 className=" text-base lg:text-xl font-semibold  ">Marks: <span className=" text-orange-500 font-bold">{singleData.marks}</span></h2>
           </div>
           <div className=" flex justify-between my-5 ">
-          <button className="btn btn-success text-white ">Update <span className=" text-xl"><FaEdit></FaEdit></span></button>
+          <Link to={`/update/${singleData._id}`}><button className="btn btn-success text-white ">Update <span className=" text-xl"><FaEdit></FaEdit></span></button></Link>
          
           <button className="btn btn-error text-white ">Delete <span className=" text-3xl"><TiDelete></TiDelete></span></button>
          
