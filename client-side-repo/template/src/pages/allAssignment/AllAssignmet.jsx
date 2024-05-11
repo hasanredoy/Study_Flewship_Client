@@ -1,12 +1,16 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import useAxiosUrl from "../../hooks/useAxiosUrl";
 import { Link } from "react-router-dom";
 import { FaEdit } from "react-icons/fa";
 import { TiDelete } from "react-icons/ti";
 
+import Swal from 'sweetalert2'
+import { AuthContext } from "../../authProvider/AuthProvider";
+import { ToastContainer, toast } from "react-toastify";
 
 
 const AllAssignmet = () => {
+  const {user}=useContext(AuthContext)
   const [assignments, setAssignments] = useState([]);
   const axiosUrl = useAxiosUrl();
   const theme = localStorage.getItem('theme')
@@ -15,7 +19,44 @@ const AllAssignmet = () => {
       setAssignments(res.data);
     });
   }, []);
-  console.log(theme);
+  console.log(assignments);
+
+  const handleDelete = (email,id)=>{
+    console.log(email,id);
+    if(user?.email!==email
+      // ||user.accessToken!==token
+    ){
+      return toast.error("You Cannot Delete Any Other User's Assignment")
+    }
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You Want Delete This Assigment? ",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes"
+    }).then((result) => {
+      if (result.isConfirmed) {
+       
+      axiosUrl.delete(`/assignments/${id}`)
+       .then(res => {
+        console.log(res.data);
+        if(res.data.deletedCount>0){
+          Swal.fire({
+           title: "Deleted Successfully",
+           icon: "success"
+         });
+        const filterAfterDelete= assignments.filter(assignment => assignment._id !== id)
+        console.log(filterAfterDelete);
+        //  newCraft( filterAfterDelete)
+         setAssignments(filterAfterDelete) 
+        }
+       })
+       
+      }
+    });
+  }
 
   return (
     <div>
@@ -54,7 +95,7 @@ const AllAssignmet = () => {
           {/* card div  */}
     <div className=" grid grid-cols-1 md:grid-cols-2 gap-5 w-[98%] mx-auto mt-20">
       {
-        assignments?.map(singleData=><div key={singleData._id} className="card  bg-base-100 shadow-xl flex-col  p-2 lg:p-3 border border-lime-300">
+        assignments?.map(singleData=><div key={singleData._id} className="card  bg-base-300 shadow-lg flex-col  p-2 lg:p-3 border border-purple-400">
         <figure className="w-[80%] mx-auto h-52 rounded-lg "><img className=" h-full w-full" src={singleData?.photoURL} alt="banner image"/></figure>
         <div className="card-body w-full  ">
           <h2 className="card-title text-xl lg:text-2xl font-bold hover:underline">{singleData?.title}</h2>
@@ -73,7 +114,7 @@ const AllAssignmet = () => {
           <div className=" flex justify-between my-5 ">
           <Link to={`/update/${singleData._id}`}><button className="btn btn-success text-white ">Update <span className=" text-xl"><FaEdit></FaEdit></span></button></Link>
          
-          <button className="btn btn-error text-white ">Delete <span className=" text-3xl"><TiDelete></TiDelete></span></button>
+          <button onClick={()=>handleDelete(singleData.email,singleData._id,singleData?.accessToken)} className="btn btn-error text-white ">Delete <span className=" text-3xl"><TiDelete></TiDelete></span></button>
          
           </div>
           <button className=" btn btn-block text-xl font-bold my-5 btn-accent btn-outline">View Assignment</button>
@@ -83,6 +124,7 @@ const AllAssignmet = () => {
       }
     </div>
       </div>
+      <ToastContainer></ToastContainer>
     </div>
   );
 };

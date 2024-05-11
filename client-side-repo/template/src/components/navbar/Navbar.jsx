@@ -5,6 +5,7 @@ import { HiMoon } from "react-icons/hi";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../authProvider/AuthProvider";
 import { IoIosLogOut } from "react-icons/io";
+import Swal from "sweetalert2";
 
 
 
@@ -20,11 +21,27 @@ const Navbar = () => {
     document.querySelector("html").setAttribute("data-theme", "dark");
   }
 
-  const handleLogout = ()=>{
-    logOut()
-    .then()
-    .catch()
-  }
+  const handleLogOut = ()=>{
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You Want Log Out ? ",
+      icon: "question",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        logOut()
+        .then(res => console.log(res))
+        .catch(err => console.log(err))
+        Swal.fire({
+          title: "Logged Out Successfully",
+          icon: "success"
+        });
+      }
+    });
+   }
   const links = (
     <>
       {user ? (
@@ -113,7 +130,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm gap-y-3 font-bold text-lg bg-neutral-100 dropdown-content mt-2 z-[1] p-4 shadow  rounded-lg w-60"
+              className="menu menu-sm gap-y-3 font-bold text-lg bg-neutral-100 dropdown-content mt-2 z-[1] p-4 shadow  rounded-lg w-60  text-black"
             >
               {links}
             </ul>
@@ -174,7 +191,7 @@ const Navbar = () => {
     <li className=" "><h1 className="font-bold text-lg flex flex-row gap-2">Hi,<span className=" text-purple-600">{user?.displayName}</span></h1></li>
     <hr />
     <li><Link className="font-bold" to={'/myAssignments'}>My Attempted Assignments</Link></li>
-    <li><button onClick={handleLogout} className=" btn btn-warning">LogOut<IoIosLogOut></IoIosLogOut> </button></li>
+    <li><button onClick={handleLogOut} className=" btn btn-warning">LogOut<IoIosLogOut></IoIosLogOut> </button></li>
   </ul>
 
             </div>

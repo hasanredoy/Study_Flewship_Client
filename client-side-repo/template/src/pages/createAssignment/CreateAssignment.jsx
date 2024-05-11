@@ -13,7 +13,8 @@ const CreateAssignment = () => {
   const [startDate, setStartDate] = useState(new Date());
    const axiosUrl = useAxiosUrl()
   const { user } = useContext(AuthContext);
-  console.log(user);
+  // console.log(user);
+  // console.log(user.accessToken);
   const handleForm = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -30,9 +31,10 @@ const CreateAssignment = () => {
       date,
       photoURL,
       description,
-      email: user?.email
+      email: user?.email,
+      accessTok : user?.accessToken
     };
-console.log(assignmentData);
+
     axiosUrl.post('/assignments' , assignmentData)
     //   
       .then(res => {
