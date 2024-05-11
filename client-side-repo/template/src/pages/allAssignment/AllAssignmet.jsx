@@ -7,6 +7,7 @@ import { TiDelete } from "react-icons/ti";
 import Swal from 'sweetalert2'
 import { AuthContext } from "../../authProvider/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
+import { toDate } from "date-fns";
 
 
 const AllAssignmet = () => {
@@ -72,6 +73,7 @@ const AllAssignmet = () => {
    })}
   // console.log(e.target.value.toLowerCase());
   }
+  // const date = new toDate()
   return (
     <div>
       {/* banner  */}
@@ -107,9 +109,9 @@ const AllAssignmet = () => {
         
         </div>
           {/* card div  */}
-          <div className="form-control border border-orange-400 rounded-lg bg-red-200 lg:w-[30%] flex flex-row">
+          <div className="form-control border border-orange-400 rounded-lg bg-red-200 w-[60%] md:w-[40%] lg:w-[30%] flex flex-row">
               <label className="label border-r-2 pr-7 border-yellow-400">
-                <span className="text-lg font-bold"> Difficulty Level</span>
+                <span className=" text-base lg:text-lg font-bold"> Difficulty Level</span>
               </label>
            
               <select onChange={handleFilter} className=" pl-5 bg-red-200 text-black py-2 rounded-md" name="levels" id="">
@@ -137,13 +139,16 @@ const AllAssignmet = () => {
             <h2 className=" text-base lg:text-xl font-semibold  ">Difficulty Level: <span className=" text-cyan-500 font-bold">{singleData.levels}</span></h2>
             <h2 className=" text-base lg:text-xl font-semibold  ">Marks: <span className=" text-orange-500 font-bold">{singleData.marks}</span></h2>
           </div>
+          <h3 className=" text-base font-semibold my-5">Submission Data: <span className=" text-purple-800">{Date(singleData.date)}</span></h3>
           <div className=" flex justify-between my-5 ">
           <Link to={`/update/${singleData._id}`}><button className="btn btn-success text-white ">Update <span className=" text-xl"><FaEdit></FaEdit></span></button></Link>
          
           <button onClick={()=>handleDelete(singleData.email,singleData._id,singleData?.accessToken)} className="btn btn-error text-white ">Delete <span className=" text-3xl"><TiDelete></TiDelete></span></button>
          
           </div>
+          <Link to={`/assignments/${singleData._id}`}>
           <button className=" btn btn-block text-xl font-bold my-5 btn-accent btn-outline">View Assignment</button>
+          </Link>
          
         </div>
       </div>)
