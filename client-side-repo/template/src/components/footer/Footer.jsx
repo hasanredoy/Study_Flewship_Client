@@ -3,17 +3,17 @@ import { CiPhone ,CiMail } from "react-icons/ci";
 
 const Footer = () => {
   return (
-    <footer className="footer p-5 lg:p-10 bg-neutral text-neutral-content flex justify-between md:flex-row flex-col">
+    <footer className="footer p-5 lg:p-10 bg-neutral text-neutral-content flex justify-between md:flex-row flex-col  items-center lg:items-start">
   <aside>
-  <Link to={'/'} className="btn btn-ghost text-2xl font-black bg-gradient-to-l bg-clip-text text-transparent from-teal-400 via-zinc-400 to-lime-600">
+  <Link to={'/'} className="btn btn-ghost text-2xl font-black bg-gradient-to-l bg-clip-text text-transparent from-teal-400 via-zinc-400 to-lime-600 mx-auto lg:mx-0">
             Study Flew Ship
           </Link>
-    <p className=" text-base lg:text-lg max-w-xs lg:max-w-full">All rights reserver &copy;|| by Hossain Hasan Redoy</p>
+    <p className=" text-base text-center lg:text-start lg:text-lg max-w-xs lg:max-w-full">All rights reserver &copy;|| by Hossain Hasan Redoy</p>
   </aside> 
-  <div>
-    <h1 className=" text-lg lg:text-2xl font-bold">Contact Us</h1>
-   <h2 className=" text-base lg:text-lg font-semibold flex gap-3 "> <CiMail className=" mt-1 text-2xl"></CiMail> <span className=" hover:underline cursor-pointer">studyflewship@gmail.com</span></h2>
-   <h2 className=" text-base lg:text-lg font-semibold flex gap-3 "> <CiPhone className=" mt-1 text-2xl"></CiPhone> <span className=" hover:underline cursor-pointer">+97149090000</span></h2>
+  <div className=" ">
+    <h1 className=" mx-auto lg:mx-0 text-lg lg:text-2xl font-bold">Contact Us</h1>
+   <h2 className=" mx-auto lg:mx-0 text-base lg:text-lg font-semibold flex gap-3 "> <CiMail className=" mt-1 text-2xl"></CiMail> <span className=" hover:underline cursor-pointer">studyflewship@gmail.com</span></h2>
+   <h2 className=" mx-auto lg:mx-0 text-base lg:text-lg font-semibold flex gap-3 "> <CiPhone className=" mt-1 text-2xl"></CiPhone> <span className=" hover:underline cursor-pointer">+97149090000</span></h2>
   </div>
   <nav>
     <h6 className=" font-bold text-lg lg:text-xl">Follow Us On</h6> 

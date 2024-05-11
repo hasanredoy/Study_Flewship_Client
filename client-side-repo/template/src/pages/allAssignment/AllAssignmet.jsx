@@ -67,10 +67,14 @@ const AllAssignmet = () => {
       })
     )
    }else{
-     axiosUrl.get(`/assignments?filter=${e.target.value}`)
-   .then(res=>{
-     setAssignments(res.data)
-   })}
+  
+    axiosUrl.get(`/assignments?filter=${e.target.value}`)
+    .then(res=>{
+      setAssignments(res.data)
+    })
+
+   
+  }
   // console.log(e.target.value.toLowerCase());
   }
   // const date = new toDate()
@@ -109,12 +113,12 @@ const AllAssignmet = () => {
         
         </div>
           {/* card div  */}
-          <div className="form-control border border-orange-400 rounded-lg bg-red-200 w-[60%] md:w-[40%] lg:w-[30%] flex flex-row">
+          <div className="form-control border border-orange-400 rounded-lg bg-base-200 w-[60%] md:w-[40%] lg:w-[30%] flex flex-row ">
               <label className="label border-r-2 pr-7 border-yellow-400">
                 <span className=" text-base lg:text-lg font-bold"> Difficulty Level</span>
               </label>
            
-              <select onChange={handleFilter} className=" pl-5 bg-red-200 text-black py-2 rounded-md" name="levels" id="">
+              <select onChange={handleFilter} className=" pl-5 bg-base-200  py-2 rounded-md" name="levels" id="">
                 <option value="All">All</option>
                 <option value="Easy">Easy</option>
                 <option value="Medium">Medium</option>
@@ -129,7 +133,7 @@ const AllAssignmet = () => {
           <h2 className="card-title text-xl lg:text-2xl font-bold hover:underline">{singleData?.title}</h2>
           <div>
             {singleData?.description.length>100?
-            <p>{singleData?.description.slice(0,100)}...<Link className=" font-bold text-blue-600">Read More.</Link> </p>
+            <p>{singleData?.description.slice(0,100)}...<Link to={`/assignments/${singleData._id}`} className=" font-bold text-blue-600">Read More.</Link> </p>
             :
             <p>{singleData?.description}</p>
           }
@@ -139,7 +143,8 @@ const AllAssignmet = () => {
             <h2 className=" text-base lg:text-xl font-semibold  ">Difficulty Level: <span className=" text-cyan-500 font-bold">{singleData.levels}</span></h2>
             <h2 className=" text-base lg:text-xl font-semibold  ">Marks: <span className=" text-orange-500 font-bold">{singleData.marks}</span></h2>
           </div>
-          <h3 className=" text-base font-semibold my-5">Submission Data: <span className=" text-purple-800">{Date(singleData.date)}</span></h3>
+          <div className="divider"></div>
+          <h3 className=" text-base font-semibold my-5">Submission Data: <span className=" text-purple-800">{(singleData.date.slice(0,10))}</span></h3>
           <div className=" flex justify-between my-5 ">
           <Link to={`/update/${singleData._id}`}><button className="btn btn-success text-white ">Update <span className=" text-xl"><FaEdit></FaEdit></span></button></Link>
          
