@@ -57,7 +57,21 @@ const AllAssignmet = () => {
       }
     });
   }
-
+  const handleFilter=(e)=>{
+   if(e.target.value==="All"){
+    return (
+      axiosUrl.get('/assignments')
+      .then(res=>{
+        setAssignments(res.data)
+      })
+    )
+   }else{
+     axiosUrl.get(`/assignments?filter=${e.target.value}`)
+   .then(res=>{
+     setAssignments(res.data)
+   })}
+  // console.log(e.target.value.toLowerCase());
+  }
   return (
     <div>
       {/* banner  */}
@@ -93,6 +107,18 @@ const AllAssignmet = () => {
         
         </div>
           {/* card div  */}
+          <div className="form-control border border-orange-400 rounded-lg bg-red-200 lg:w-[30%] flex flex-row">
+              <label className="label border-r-2 pr-7 border-yellow-400">
+                <span className="text-lg font-bold"> Difficulty Level</span>
+              </label>
+           
+              <select onChange={handleFilter} className=" pl-5 bg-red-200 text-black py-2 rounded-md" name="levels" id="">
+                <option value="All">All</option>
+                <option value="Easy">Easy</option>
+                <option value="Medium">Medium</option>
+                <option value="Hard">Hard</option>
+              </select>
+            </div>
     <div className=" grid grid-cols-1 md:grid-cols-2 gap-5 w-[98%] mx-auto mt-20">
       {
         assignments?.map(singleData=><div key={singleData._id} className="card  bg-base-300 shadow-lg flex-col  p-2 lg:p-3 border border-purple-400">
