@@ -38,7 +38,7 @@ console.log(assignmentData);
       .then(res => {
         console.log(res.data);
         if (res.data?.insertedId) {
-          toast.success('Added Successfully')
+          toast.success('Assignment Created Successfully')
 
           }
         });

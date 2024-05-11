@@ -165,13 +165,13 @@ const Navbar = () => {
             <div tabIndex={0} role="button" className=" dropdown-bottom dropdown relative pt-1  "  >
               <div className="avatar online mr-0 md:mr-3">
                 <div  className="w-16 rounded-full"  >
-                  <img src={user?.photoURL || user.displayName[1]} />
+                  <img src={user?.photoURL || 'https://i.postimg.cc/9FYCz4PJ/Screenshot-2024-05-10-221419.png'} />
                 </div>
               </div>
              
 
   <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-200 rounded-box w-64 absolute -left-48 space-y-3">
-    <li className=" "><h1 className="font-bold text-xl flex flex-row gap-2">Hi<span className=" text-purple-600">{user?.displayName}</span></h1></li>
+    <li className=" "><h1 className="font-bold text-lg flex flex-row gap-2">Hi,<span className=" text-purple-600">{user?.displayName}</span></h1></li>
     <hr />
     <li><Link className="font-bold" to={'/myAssignments'}>My Attempted Assignments</Link></li>
     <li><button onClick={handleLogout} className=" btn btn-warning">LogOut<IoIosLogOut></IoIosLogOut> </button></li>
