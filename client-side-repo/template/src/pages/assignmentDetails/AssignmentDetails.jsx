@@ -20,7 +20,10 @@ const AssignmentDetails = () => {
       note,
       userEmail,
       access,
-      status:'Pending'
+      status:'Pending',
+      title:singleData.title,
+      marks: singleData.marks,
+      name: user?.displayName
     }
     axiosUrl.post('/submittedAssignment',data)
     .then(res=>{
@@ -33,7 +36,7 @@ const AssignmentDetails = () => {
   return (
     <div>
       <h1 className=" font-bold text-3xl text-center my-10">
-        Details of <span className=" text-orange-700">{singleData.title}</span>
+        Assignment <span className=" text-orange-700">{singleData.title}</span>
       </h1>
       <div className="card  card-side bg-base-200  flex-col lg:flex-row p-2">
         <figure className=" w-full lg:w-[48%] h-56 lg:h-full rounded-lg ">
@@ -84,7 +87,7 @@ const AssignmentDetails = () => {
 
              <form onSubmit={handleSubmit} >
              <dialog id="my_modal_4" className="modal">
-              <div className="modal-box w-11/12 max-w-5xl">
+              <div className="modal-box w-11/12 max-w-4xl">
                 <h1 className="text-xl lg:text-2xl text-center font-bold">Submit Your&apos;e Assignment PDF / Document Link Blew</h1>
                 <div className="divider"></div>
                   {/* doc url */}
