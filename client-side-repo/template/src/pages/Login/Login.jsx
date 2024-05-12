@@ -74,15 +74,20 @@ const Login = () => {
        <div className=" sticky top-0 z-50">
   <Navbar></Navbar>
   </div>
-      <div
-      className=" bg-base-200
+      <div 
+      className="  bg-base-200
   w-full flex justify-center items-center py-5 "
     >
       
        
-      <div className="card shrink-0 shadow-2xl  w-full h-full  lg:w-1/2 bg-base-300">
-        <h2 className=" font-bold text-3xl text-center pt-4"> Please Login!</h2>
-        <form onSubmit={handleLogin} className="card-body">
+      <div
+       style={{backgroundImage: 'url(https://img.freepik.com/premium-psd/gradient-abstract-borders_23-2150602075.jpg?size=626&ext=jpg&ga=GA1.1.1157238559.1714161987&semt=ais_user'}} 
+      className=" bg-cover relative card shrink-0 shadow-2xl  w-full h-full  lg:w-1/2  text-white">
+        <div className=" absolute w-full z-20 h-full rounded-xl bg-black bg-opacity-60">
+          
+        </div>
+        <h2 className=" z-40 font-bold text-3xl text-center pt-4"> Please Login!</h2>
+        <form onSubmit={handleLogin} className="card-body z-40">
           <div className="form-control">
             <label className="label">
               <span className="text-xl font-semibold">Email</span>
@@ -129,13 +134,13 @@ const Login = () => {
           </div>
         </form>
         <div className="divider">or</div>
-        <div className=" flex justify-evenly my-5 ">
-          <button onClick={handleGoogleLogin} className="btn btn-outline text-black btn-accent">
+        <div className=" flex justify-evenly my-5 z-40 ">
+          <button onClick={handleGoogleLogin} className="btn  text-black btn-info">
             Login With <FcGoogle className=" text-2xl"></FcGoogle>{" "}
           </button>
           
         </div>
-        <p className=" text-center pb-3 font-semibold">
+        <p className=" z-40 text-center pb-3 font-semibold">
           New Here !{" "}
           <Link to={"/register"} className=" text-blue-700 font-bold">
             Register.

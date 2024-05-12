@@ -10,11 +10,13 @@ import MyAssignments from "../pages/MyAssignment/MyAssignments";
 import UpdateAssignment from "../pages/updateAssignment/UpdateAssignment";
 import AssignmentDetails from "../pages/assignmentDetails/AssignmentDetails";
 import GiveMark from "../pages/giveMark/GiveMark";
+import ErrorPage from "../pages/error/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout></Layout>,
+    errorElement:<ErrorPage></ErrorPage>,
     children:[
       {
         path:'/',
@@ -52,14 +54,17 @@ const router = createBrowserRouter([
         loader:({params})=>fetch(`http://localhost:5000/assignments/${params.id}`)
       },
     ]
+
   },
   {
     path:'/login',
-    element:<Login></Login>
+    element:<Login></Login>,
+    errorElement:<ErrorPage></ErrorPage>
   },
   {
     path:'/register',
-    element:<Register></Register>
+    element:<Register></Register>,
+    errorElement:<ErrorPage></ErrorPage>
   },
 ]);
 export default router;
