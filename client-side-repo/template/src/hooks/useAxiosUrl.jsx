@@ -7,8 +7,8 @@ const axiosUrl = axios.create({
   withCredential:true,
 })
 const useAxiosUrl = () => {
+
   return axiosUrl
-  
 };
 
 export default useAxiosUrl;

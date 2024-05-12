@@ -8,7 +8,9 @@ const MyAssignments = () => {
   const axiosUrl = useAxiosUrl();
 
   useEffect(() => {
-    axiosUrl.get(`submittedAssignment?email=${user?.email}`).then((res) => {
+    axiosUrl.get(`submittedAssignment?email=${user?.email}`)
+    // axiosUrl.get(`submittedAssignment?email=hkjhj`)
+    .then((res) => {
       setMyAssignment(res.data);
     });
   }, [user]);
