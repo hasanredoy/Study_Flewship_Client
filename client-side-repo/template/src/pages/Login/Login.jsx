@@ -3,7 +3,7 @@ import { AuthContext } from "../../authProvider/AuthProvider";
 import {toast , ToastContainer} from 'react-toastify'
 import { FcGoogle } from "react-icons/fc";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../../components/navbar/Navbar";
 import Footer from "../../components/footer/Footer";
 import 'react-toastify/dist/ReactToastify.css';
@@ -11,11 +11,14 @@ import { Helmet } from "react-helmet";
 
 
 const Login = () => {
+const location = useLocation()
+const navigate = useNavigate()
+
   const {user, signIn,
     signInWithGoogle,}=useContext(AuthContext)
     const [eye, setEey] = useState(true);
 
-
+console.log(location);
   const handleLogin = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -37,13 +40,13 @@ const Login = () => {
     signIn(email, password)
       .then((res) => {
         console.log(res.user);
-
-        console.log(location);
+        // navigate(location)
+        // console.log(location);
         toast.success("Logged In Successfully");
        
-        // navigate(location?.state?location.state:setTimeout(()=>{
-        //   navigate('/')
-        // },1000))
+        navigate(location?.state?location.state:setTimeout(()=>{
+          navigate('/')
+        },1000))
       })
       .catch((err) => {
         console.log(err);
@@ -57,9 +60,9 @@ const Login = () => {
     .then(res => {
       console.log(res);
       toast.success('Logged In With Google Successfully')
-    //   navigate(location?.state?location.state:setTimeout(()=>{
-    //   navigate('/')
-    // },1000))
+      navigate(location?.state?location.state:setTimeout(()=>{
+      navigate('/')
+    },1000))
     })
     .catch(err => console.log(err))
   }
@@ -142,7 +145,7 @@ const Login = () => {
         </div>
         <p className=" z-40 text-center pb-3 font-semibold">
           New Here !{" "}
-          <Link to={"/register"} className=" text-blue-700 font-bold">
+          <Link to={"/register"} className=" hover:underline bg-white p-[2px] rounded-md text-blue-800 font-bold">
             Register.
           </Link>
         </p>

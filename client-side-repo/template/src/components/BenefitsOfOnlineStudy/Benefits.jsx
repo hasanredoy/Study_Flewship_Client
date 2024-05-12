@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import useAxiosUrl from "../../hooks/useAxiosUrl";
 
+
 const Benefits = () => {
   const axiosUrl = useAxiosUrl()
   const [loading , setLoading]=useState(true)
@@ -34,7 +35,9 @@ const Benefits = () => {
         {/* card div  */}
     <div className=" grid grid-cols-1 md:grid-cols-2 gap-5 w-[98%] mx-auto my-10">
       {
-        data?.map(singleData=><div key={singleData._id} className="card  bg-base-100 shadow-xl flex-col  p-2 lg:p-5 border border-lime-300">
+        data?.map((singleData,index)=><div key={singleData._id} 
+          
+        className="card  bg-base-100 shadow-xl flex-col  p-2 lg:p-5 border border-lime-300">
         <figure className="w-[50%] mx-auto h-52 rounded-lg "><img className=" h-full w-full" src={singleData?.image} alt="banner image"/></figure>
         <div className="card-body w-full  ">
           <h2 className="card-title text-xl md:text-2xl font-bold hover:underline">{singleData?.point}</h2>

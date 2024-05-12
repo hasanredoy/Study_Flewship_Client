@@ -4,6 +4,8 @@ import useAxiosUrl from "../../hooks/useAxiosUrl";
 import { FaArrowCircleRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
+
+
 const FeaturedSection = () => {
   const axiosUrl = useAxiosUrl();
   const [loading, setLoading] = useState(true);
@@ -38,8 +40,9 @@ const FeaturedSection = () => {
       </div>
       {/* card div  */}
       <div className=" grid grid-cols-1 md:grid-cols-2 gap-5 w-[98%] mx-auto ">
-        {data?.map((singleData) => (
+        {data?.map((singleData,index) => (
           <div
+        
             key={singleData._id}
             className="card  card-side bg-base-300 shadow-xl flex-col lg:flex-row-reverse p-2  border border-yellow-300"
           >

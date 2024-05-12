@@ -11,6 +11,7 @@ import UpdateAssignment from "../pages/updateAssignment/UpdateAssignment";
 import AssignmentDetails from "../pages/assignmentDetails/AssignmentDetails";
 import GiveMark from "../pages/giveMark/GiveMark";
 import ErrorPage from "../pages/error/ErrorPage";
+import PrivetRoute from "../pages/privetRoute/PrivetRoute";
 
 const router = createBrowserRouter([
   {
@@ -28,29 +29,29 @@ const router = createBrowserRouter([
       },
       {
         path:'/createAssignments',
-        element:<CreateAssignment></CreateAssignment>
+        element:<PrivetRoute><CreateAssignment></CreateAssignment></PrivetRoute>
       },
       {
         path:'/pendingAssignments',
-        element:<PendingAssignment></PendingAssignment>
+        element:<PrivetRoute><PendingAssignment></PendingAssignment></PrivetRoute>
       },
       {
         path:'/pendingAssignment/:id',
-        element:<GiveMark></GiveMark>,
+        element:<PrivetRoute><GiveMark></GiveMark></PrivetRoute>,
         loader:({params})=>fetch(`http://localhost:5000/submittedAssignment/${params.id}`)
       },
       {
         path:'/myAssignments',
-        element:<MyAssignments></MyAssignments>
+        element:<PrivetRoute><MyAssignments></MyAssignments></PrivetRoute>
       },
       {
         path:'/update/:id',
-        element:<UpdateAssignment></UpdateAssignment>,
+        element:<PrivetRoute><UpdateAssignment></UpdateAssignment></PrivetRoute>,
         loader:({params})=>fetch(`http://localhost:5000/assignments/${params.id}`)
       },
       {
         path:'/assignments/:id',
-        element:<AssignmentDetails></AssignmentDetails>,
+        element:<PrivetRoute><AssignmentDetails></AssignmentDetails></PrivetRoute>,
         loader:({params})=>fetch(`http://localhost:5000/assignments/${params.id}`)
       },
     ]
