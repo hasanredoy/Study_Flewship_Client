@@ -132,8 +132,8 @@ const AllAssignmet = () => {
         <div className="card-body w-full  ">
           <h2 className="card-title text-xl lg:text-2xl font-bold hover:underline">{singleData?.title}</h2>
           <div>
-            {singleData?.description.length>100?
-            <p>{singleData?.description.slice(0,100)}...<Link to={`/assignments/${singleData._id}`} className=" font-bold text-blue-600">Read More.</Link> </p>
+            {singleData?.description?.length>100?
+            <p>{singleData?.description?.slice(0,100)}...<Link to={`/assignments/${singleData._id}`} className=" font-bold text-blue-600">Read More.</Link> </p>
             :
             <p>{singleData?.description}</p>
           }
@@ -144,7 +144,7 @@ const AllAssignmet = () => {
             <h2 className=" text-base lg:text-xl font-semibold  ">Marks: <span className=" text-orange-500 font-bold">{singleData.marks}</span></h2>
           </div>
           <div className="divider"></div>
-          <h3 className=" text-base font-semibold my-5">Submission Data: <span className=" text-purple-800">{(singleData.date.slice(0,10))}</span></h3>
+          <h3 className=" text-base font-semibold my-5">Submission Data: <span className=" text-purple-800">{(singleData?.date?.slice(0,10))}</span></h3>
           <div className=" flex justify-between my-5 ">
           <Link to={`/update/${singleData._id}`}><button className="btn btn-success text-white ">Update <span className=" text-xl"><FaEdit></FaEdit></span></button></Link>
          

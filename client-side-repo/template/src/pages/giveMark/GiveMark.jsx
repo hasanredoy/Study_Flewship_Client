@@ -21,10 +21,12 @@ const GiveMark = () => {
       access:assignment?.access,
       status:'completed',
       title: assignment?.title,
+      marks:assignment.marks,
       name: user?.displayName,
-      marks: newMark,
+      obtainedMarks: newMark,
       Feedback
     }
+    console.log(data);
     axiosUrl.put(`/submittedAssignment/${assignment._id}` , data)
     //   
       .then(res => {
