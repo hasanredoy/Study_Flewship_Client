@@ -73,7 +73,7 @@ const AssignmentDetails = () => {
             <span className=" text-fuchsia-600">{Date(singleData.date)}</span>
           </h3>
           <div>
-            <Link >
+           
               <button
                 className="btn btn-block text-xl font-bold my-5 btn-success btn-outline"
                 onClick={() =>
@@ -82,7 +82,7 @@ const AssignmentDetails = () => {
               >
                 Take Assignment
               </button>
-            </Link>
+           
             {/*  modal */}
 
              <form onSubmit={handleSubmit} >

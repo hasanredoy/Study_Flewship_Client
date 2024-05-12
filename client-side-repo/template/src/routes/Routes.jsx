@@ -9,6 +9,7 @@ import PendingAssignment from "../pages/pendingAssignemnt/PendingAssignment";
 import MyAssignments from "../pages/MyAssignment/MyAssignments";
 import UpdateAssignment from "../pages/updateAssignment/UpdateAssignment";
 import AssignmentDetails from "../pages/assignmentDetails/AssignmentDetails";
+import GiveMark from "../pages/giveMark/GiveMark";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,11 @@ const router = createBrowserRouter([
       {
         path:'/pendingAssignments',
         element:<PendingAssignment></PendingAssignment>
+      },
+      {
+        path:'/pendingAssignment/:id',
+        element:<GiveMark></GiveMark>,
+        loader:({params})=>fetch(`http://localhost:5000/submittedAssignment/${params.id}`)
       },
       {
         path:'/myAssignments',
