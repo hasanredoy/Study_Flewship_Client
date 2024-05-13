@@ -62,6 +62,7 @@ console.log(location);
       toast.success('Logged In With Google Successfully')
       navigate(location?.state?location.state:setTimeout(()=>{
       navigate('/')
+      
     },1000))
     })
     .catch(err => console.log(err))

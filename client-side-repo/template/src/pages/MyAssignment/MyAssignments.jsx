@@ -6,9 +6,9 @@ const MyAssignments = () => {
   const [myAssignments, setMyAssignment] = useState([]);
   const { user } = useContext(AuthContext);
   const axiosUrl = useAxiosUrl();
-
+  console.log(user.email);
   useEffect(() => {
-    axiosUrl.get(`submittedAssignment?email=${user?.email}`)
+    axiosUrl.get(`/submittedAssignment?email=${user?.email}`)
     // axiosUrl.get(`submittedAssignment?email=hkjhj`)
     .then((res) => {
       setMyAssignment(res.data);
