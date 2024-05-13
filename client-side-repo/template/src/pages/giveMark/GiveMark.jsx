@@ -10,7 +10,7 @@ const GiveMark = () => {
   const assignment = useLoaderData();
   const {user}= useContext(AuthContext)
   const navigate = useNavigate()
-  console.log(assignment);
+  // console.log(assignment);
   const handleSubmit = (e) => {
     e.preventDefault()
     const newMark= e.target.mark.value
@@ -27,11 +27,11 @@ const GiveMark = () => {
       obtainedMarks: newMark,
       Feedback
     }
-    console.log(data);
+    // console.log(data);
     axiosUrl.put(`/submittedAssignment/${assignment._id}` , data)
     //   
       .then(res => {
-        console.log(res.data);
+        // console.log(res.data);
         if (res.data?.modifiedCount>0) {
           toast.success('Mark Given Successfully')
            setTimeout(()=>{navigate('/pendingAssignments')},500)

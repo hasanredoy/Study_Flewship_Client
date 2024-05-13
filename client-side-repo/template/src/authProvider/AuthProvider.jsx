@@ -62,12 +62,12 @@ const AuthProvider = ({ children }) => {
       const loggedUser = {email: userEmail}
      
       if(currentUser){
-         axios.post('http://localhost:5000/jwt',loggedUser,{withCredentials:true})
+         axios.post('https://crud-jwt-server-two.vercel.app/jwt',loggedUser,{withCredentials:true})
          .then(data => {
-          console.log(data.data);
+          // console.log(data.data);
          })
       }  else{
-        axios.post('http://localhost:5000/logout', loggedUser ,{
+        axios.post('https://crud-jwt-server-two.vercel.app/logout', loggedUser ,{
          withCredentials:true
         })
         .then(()=>{

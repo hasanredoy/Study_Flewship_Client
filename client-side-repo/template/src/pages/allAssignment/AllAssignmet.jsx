@@ -21,10 +21,10 @@ const AllAssignmet = () => {
       setLoading(false);
     });
   }, []);
-  console.log(assignments);
+  // console.log(assignments);
 
   const handleDelete = (email, id) => {
-    console.log(email, id);
+    // console.log(email, id);
     if (
       user?.email !== email
       // ||user.accessToken!==token
@@ -42,7 +42,7 @@ const AllAssignmet = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axiosUrl.delete(`/assignments/${id}`).then((res) => {
-          console.log(res.data);
+          // console.log(res.data);
           if (res.data.deletedCount > 0) {
             Swal.fire({
               title: "Deleted Successfully",
@@ -51,7 +51,7 @@ const AllAssignmet = () => {
             const filterAfterDelete = assignments.filter(
               (assignment) => assignment._id !== id
             );
-            console.log(filterAfterDelete);
+            // console.log(filterAfterDelete);
             //  newCraft( filterAfterDelete)
             setAssignments(filterAfterDelete);
           }

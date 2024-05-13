@@ -3,18 +3,20 @@ import { AuthContext } from "../../authProvider/AuthProvider";
 import useAxiosUrl from "../../hooks/useAxiosUrl";
 
 const MyAssignments = () => {
+  const [loading , setLoading] = useState(true)
   const [myAssignments, setMyAssignment] = useState([]);
   const { user } = useContext(AuthContext);
   const axiosUrl = useAxiosUrl();
-  console.log(user.email);
+  // console.log(user.email);
   useEffect(() => {
     axiosUrl.get(`/submittedAssignment?email=${user?.email}`)
     // axiosUrl.get(`submittedAssignment?email=hkjhj`)
     .then((res) => {
       setMyAssignment(res.data);
+      setLoading(false)
     });
   }, [user]);
-  console.log(myAssignments);
+  // console.log(myAssignments);
   return (
     <div className="  flex flex-col md:flex-row-reverse gap-3">
       {/* user profile   */}
@@ -36,6 +38,11 @@ const MyAssignments = () => {
             ? "My Attempted Assignments"
             : "You Don't Have Any Submitted Assignment"}
         </h1>
+        <div className="flex justify-center w-full ">
+        {loading && (
+          <span className="loading loading-spinner loading-lg text-center "></span>
+        )}
+      </div>
         <div className=" grid justify-center items-center mx-auto grid-cols-1  gap-5 ">
           {myAssignments?.map((myAssig) => (
             <div

@@ -9,7 +9,7 @@ const AssignmentDetails = () => {
   const axiosUrl = useAxiosUrl()
   const {user} = useContext(AuthContext)
   const [modal , setModal]=useState(false)
-  console.log(modal);
+  // console.log(modal);
   const handleSubmit=(e)=>{
     e.preventDefault()
   
@@ -20,7 +20,7 @@ const AssignmentDetails = () => {
     if(!pdf || !note){
       setModal(true)
     }
-    console.log(note,pdf);
+    // console.log(note,pdf);
     const data ={
       pdf,
       note,
@@ -33,8 +33,8 @@ const AssignmentDetails = () => {
     }
     axiosUrl.post('/submittedAssignment',data)
     .then(res=>{
-      console.log(res.data);
-      if(res.data.insertedId){
+      // console.log(res.data);
+      if(res.data?.insertedId){
         toast.success('Submitted Successfully')
         setModal(false)
       }
@@ -43,7 +43,7 @@ const AssignmentDetails = () => {
   return (
     <div className=" relative">
       <h1 className=" font-bold text-3xl text-center my-10">
-        Assignment <span className=" text-orange-700">{singleData.title}</span>
+        Assignment <span className=" text-orange-700">{singleData?.title}</span>
       </h1>
       <div className="card  card-side bg-base-200  flex-col lg:flex-row p-2">
         <figure className=" w-full lg:w-[48%] h-56 lg:h-full rounded-lg ">
@@ -92,12 +92,12 @@ const AssignmentDetails = () => {
            
           
           </div>
-          <div className="top-[5%] w-full lg:top-[20%] left-0 right-auto lg:right-[20%] absolute bg-emerald-100">
-              {/*  modal */}
+           {/*  modal */}
               {
-              modal&&<form className=" " onSubmit={handleSubmit} >
+              modal&&<div className="top-[5%] w-full lg:top-[5%] left-0 lg:left-[24%] right-auto lg:right-[20%] absolute bg-base-300 rounded-lg p-4 lg:w-1/2">
+             <form className=" " onSubmit={handleSubmit} >
             
-              <div className="modal-box w-[100%]">
+              <div className="">
                 <h1 className="text-xl lg:text-2xl text-center font-bold">Submit Your&apos;e Assignment PDF / Document Link Blew</h1>
                 <div className="divider"></div>
                   {/* doc url */}
@@ -130,8 +130,8 @@ const AssignmentDetails = () => {
               </div>
             
              </form> 
-            } 
-          </div>
+            
+          </div>}
         </div>
       </div>
       <ToastContainer></ToastContainer>

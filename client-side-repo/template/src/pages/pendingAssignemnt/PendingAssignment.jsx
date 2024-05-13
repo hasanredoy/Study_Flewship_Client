@@ -3,20 +3,22 @@ import useAxiosUrl from "../../hooks/useAxiosUrl";
 import { Link } from "react-router-dom";
 
 const PendingAssignment = () => {
+  const [loading , setLoading ] = useState(true)
   const [submittedAssignment, setSubmittedAssignment] = useState([]);
   const [modal, setModal] = useState(false);
   const axiosUrl = useAxiosUrl();
   useEffect(() => {
     axiosUrl.get("/submittedAssignment").then((res) => {
-      console.log(res.data);
+      // console.log(res.data);
       setSubmittedAssignment(res.data);
+      setLoading(false)
     });
   }, []);
 
   const newSubmittedAssignment = submittedAssignment.filter(
     (assignment) => assignment.status === "Pending"
   );
-  console.log(submittedAssignment);
+  // console.log(submittedAssignment);
   return (
     <div>
       <h2 className="mb-4 text-3xl text-center font-bold leading-tight">
@@ -25,6 +27,11 @@ const PendingAssignment = () => {
 
       <div className="container bg-base-100 p-2 mx-auto sm:p-4 border rounded-lg ">
         <div className="overflow-x-auto">
+        <div className="flex justify-center w-full ">
+        {loading && (
+          <span className="loading loading-spinner loading-lg text-center "></span>
+        )}
+      </div>
           <table className="min-w-full text-xs">
             <thead className="">
               <tr className="text-left text-base md:text-xl font-bold border-b border-gray-500">
@@ -36,6 +43,7 @@ const PendingAssignment = () => {
                 <th className="p-3 text-right"></th>
               </tr>
             </thead>
+            
             <tbody>
               {newSubmittedAssignment?.map((assignment) => (
                 <tr

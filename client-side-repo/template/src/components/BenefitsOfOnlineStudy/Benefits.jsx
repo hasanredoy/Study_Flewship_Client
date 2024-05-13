@@ -14,7 +14,7 @@ const Benefits = () => {
     })
   },[])
   // data[6].image='https://tse4.mm.bing.net/th?id=OIP.skL2AGbKpUabINQBrqwpiAHaEN&pid=Api&P=0&h=220'
-  console.log(data);
+  // console.log(data);
   return (
     <div>
         {/* text div  */}

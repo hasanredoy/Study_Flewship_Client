@@ -24,6 +24,10 @@ const CreateAssignment = () => {
     const date = startDate;
     const photoURL = form.photo.value;
     const description = form.description.value;
+    if(date < new Date()){
+      
+      return toast.error('Invalid Date')
+    }
     const assignmentData = {
       title,
       levels,
@@ -38,7 +42,7 @@ const CreateAssignment = () => {
     axiosUrl.post('/assignments' , assignmentData)
     //   
       .then(res => {
-        console.log(res.data);
+        // console.log(res.data);
         if (res.data?.insertedId) {
           toast.success('Assignment Created Successfully')
 
@@ -69,19 +73,7 @@ const CreateAssignment = () => {
                 name="title"
               />
             </div>
-            {/* photo  */}
-            <div className="form-control md:w-full">
-              <label className="label">
-                <span className="text-xl font-bold">Thumbnail Image URL</span>
-              </label>
-              <input
-                type="url"
-                placeholder="URL"
-                className="input input-bordered bg-white text-black w-full"
-                required
-                name="photo"
-              />
-            </div>
+            
          
           </div>
 
@@ -101,23 +93,23 @@ const CreateAssignment = () => {
               />
             </div>
 
-            {/* description */}
-            <div className="form-control w-full">
+            {/* photo  */}
+            <div className="form-control md:w-full">
               <label className="label">
-                <span className="text-xl font-bold"> Description</span>
+                <span className="text-xl font-bold">Thumbnail Image URL</span>
               </label>
               <input
-                type="text"
-                placeholder="Description"
+                type="url"
+                placeholder="URL"
                 className="input input-bordered bg-white text-black w-full"
                 required
-                name="description"
+                name="photo"
               />
             </div>
           </div>
           {/* 3 row  */}
           <div className="flex flex-col lg:flex-row gap-5 w-full ">
-            {/* price  */}
+            {/* date  */}
             <div className="form-control  w-full">
               <label className="label">
                 <span className="text-xl font-bold">Due Date</span>
@@ -144,6 +136,18 @@ const CreateAssignment = () => {
               </select>
             </div>
           </div>
+          {/* description */}
+          <div className="form-control w-full">
+              <label className="label">
+                <span className="text-xl font-bold"> Description</span>
+              </label>
+            <textarea 
+            rows={6}
+             className=" bg-white text-black w-full"
+             required
+             name="description"
+            ></textarea>
+            </div>
           <div className="form-control mt-6">
             <button type="submit" className="btn btn-success btn-block">
               Create Assignment{" "}

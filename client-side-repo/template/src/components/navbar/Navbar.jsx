@@ -33,8 +33,12 @@ const Navbar = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         logOut()
-        .then(res => console.log(res))
-        .catch(err => console.log(err))
+        .then(res =>{
+
+        } )
+        .catch(err =>{
+
+        })
         Swal.fire({
           title: "Logged Out Successfully",
           icon: "success"
@@ -102,7 +106,7 @@ const Navbar = () => {
       )}
     </>
   );
-  console.log(toggle);
+  // console.log(toggle);
   return (
     <div>
       <div className="navbar bg-base-300 p-0 m-0 shadow-sm shadow-stone-400">

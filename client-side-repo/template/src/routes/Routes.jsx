@@ -38,7 +38,7 @@ const router = createBrowserRouter([
       {
         path:'/pendingAssignment/:id',
         element:<PrivetRoute><GiveMark></GiveMark></PrivetRoute>,
-        loader:({params})=>fetch(`http://localhost:5000/submittedAssignment/${params.id}`)
+        loader:({params})=>fetch(`https://crud-jwt-server-two.vercel.app/submittedAssignment/${params.id}`)
       },
       {
         path:'/myAssignments',
@@ -47,12 +47,12 @@ const router = createBrowserRouter([
       {
         path:'/update/:id',
         element:<PrivetRoute><UpdateAssignment></UpdateAssignment></PrivetRoute>,
-        loader:({params})=>fetch(`http://localhost:5000/assignments/${params.id}`)
+        loader:({params})=>fetch(`https://crud-jwt-server-two.vercel.app/assignments/${params.id}`)
       },
       {
         path:'/assignments/:id',
         element:<PrivetRoute><AssignmentDetails></AssignmentDetails></PrivetRoute>,
-        loader:({params})=>fetch(`http://localhost:5000/assignments/${params.id}`)
+        loader:({params})=>fetch(`https://crud-jwt-server-two.vercel.app/assignments/${params.id}`)
       },
     ]
 

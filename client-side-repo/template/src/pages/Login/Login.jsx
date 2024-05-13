@@ -18,7 +18,7 @@ const navigate = useNavigate()
     signInWithGoogle,}=useContext(AuthContext)
     const [eye, setEey] = useState(true);
 
-console.log(location);
+// console.log(location);
   const handleLogin = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -36,10 +36,10 @@ console.log(location);
       return;
     }
 
-    console.log(user);
+    // console.log(user);
     signIn(email, password)
       .then((res) => {
-        console.log(res.user);
+        // console.log(res.user);
         // navigate(location)
         // console.log(location);
         toast.success("Logged In Successfully");
@@ -58,7 +58,7 @@ console.log(location);
   const handleGoogleLogin = ()=>{
     signInWithGoogle()
     .then(res => {
-      console.log(res);
+      // console.log(res);
       toast.success('Logged In With Google Successfully')
       navigate(location?.state?location.state:setTimeout(()=>{
       navigate('/')

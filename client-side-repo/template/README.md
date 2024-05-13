@@ -1,8 +1,13 @@
-# React + Vite
+# Study Flewship
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Website: [Study Flewship](https://study-flewship-a-11.web.app)
 
-Currently, two official plugins are available:
+## Website Features:
+- Interactive learning modules for diverse subjects.
+- Personalized study plans tailored to individual learning styles.
+- Live tutoring sessions with qualified instructors.
+- Progress tracking and performance analytics for continuous improvement.
+- Community forums for peer collaboration and knowledge sharing.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+### My Category = Assignment_ID: assignment_category_0001

@@ -32,7 +32,7 @@ const UpdateAssignment = () => {
       description,
      
     };
-console.log(assignmentData);
+// console.log(assignmentData);
     axiosUrl.put(`/assignments/${assignment._id}` , assignmentData)
     //   
       .then(res => {
