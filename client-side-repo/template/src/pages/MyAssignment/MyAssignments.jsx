@@ -36,11 +36,11 @@ const MyAssignments = () => {
             ? "My Attempted Assignments"
             : "You Don't Have Any Submitted Assignment"}
         </h1>
-        <div className=" grid justify-center items-center mx-auto grid-cols-1 lg:grid-cols-2 gap-3 ">
+        <div className=" grid justify-center items-center mx-auto grid-cols-1  gap-5 ">
           {myAssignments?.map((myAssig) => (
             <div
               key={myAssig._id}
-              className=" border border-lime-500 rounded-lg bg-base-300  p-5 "
+              className=" w-full lg:w-[650px] border border-lime-500 rounded-lg bg-lime-100 text-black  p-5 "
             >
               <h1 className=" text-xl  font-bold">{myAssig.title}</h1>
               <div className=" my-5">
@@ -84,7 +84,7 @@ const MyAssignments = () => {
               </div>
               <div className="divider divider-neutral"></div>
               <iframe
-                className=" border border-red-200 max-w-full lg:max-w-[500px] w-full overflow-y-auto h-[300px]"
+                className=" border border-red-200 max-w-full lg:max-w-[650px] w-full overflow-y-auto h-[400px]"
                 src={myAssig.pdf}
                 frameborder="0"
               ></iframe>

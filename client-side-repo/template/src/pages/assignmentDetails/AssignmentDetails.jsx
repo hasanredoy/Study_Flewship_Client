@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../authProvider/AuthProvider";
 import useAxiosUrl from "../../hooks/useAxiosUrl";
@@ -8,12 +8,18 @@ const AssignmentDetails = () => {
   const singleData = useLoaderData();
   const axiosUrl = useAxiosUrl()
   const {user} = useContext(AuthContext)
+  const [modal , setModal]=useState(false)
+  console.log(modal);
   const handleSubmit=(e)=>{
     e.preventDefault()
+  
     const note = e.target.textArea.value
     const pdf = e.target.doc.value
     const userEmail = user.email
     const access = user.accessToken
+    if(!pdf || !note){
+      setModal(true)
+    }
     console.log(note,pdf);
     const data ={
       pdf,
@@ -30,11 +36,12 @@ const AssignmentDetails = () => {
       console.log(res.data);
       if(res.data.insertedId){
         toast.success('Submitted Successfully')
+        setModal(false)
       }
     })
   }
   return (
-    <div>
+    <div className=" relative">
       <h1 className=" font-bold text-3xl text-center my-10">
         Assignment <span className=" text-orange-700">{singleData.title}</span>
       </h1>
@@ -77,17 +84,20 @@ const AssignmentDetails = () => {
               <button
                 className="btn btn-block text-xl font-bold my-5 btn-success btn-outline"
                 onClick={() =>
-                  document.getElementById("my_modal_4").showModal()
+                 setModal(true)
                 }
               >
                 Take Assignment
               </button>
            
-            {/*  modal */}
-
-             <form onSubmit={handleSubmit} >
-             <dialog id="my_modal_4" className="modal">
-              <div className="modal-box w-11/12 max-w-4xl">
+          
+          </div>
+          <div className="top-[5%] w-full lg:top-[20%] left-0 right-auto lg:right-[20%] absolute bg-emerald-100">
+              {/*  modal */}
+              {
+              modal&&<form className=" " onSubmit={handleSubmit} >
+            
+              <div className="modal-box w-[100%]">
                 <h1 className="text-xl lg:text-2xl text-center font-bold">Submit Your&apos;e Assignment PDF / Document Link Blew</h1>
                 <div className="divider"></div>
                   {/* doc url */}
@@ -109,17 +119,18 @@ const AssignmentDetails = () => {
                     Write Some Notes
                   </label>
                   <br />
-                  <textarea className="w-full p-5 border border-gray-200" name="textArea"  cols rows={5} ></textarea>
+                  <textarea className="w-full p-5 border border-gray-200" required name="textArea"  cols rows={5} ></textarea>
                 </div> 
-                <button type="submit" className="btn  btn-info  text-white">Submit</button>
                 <div className="modal-action ">
-                  <form method="dialog">
-                   <button className="btn btn-warning">close</button>
-                  </form>
+                <input 
+                // onClick={()=>setTimeout(()=>{setModal(false)},500)} 
+                type="submit" className="btn  btn-info  text-white" value={'Submit'}/>
+                 
                 </div>
               </div>
-            </dialog>
-             </form>
+            
+             </form> 
+            } 
           </div>
         </div>
       </div>

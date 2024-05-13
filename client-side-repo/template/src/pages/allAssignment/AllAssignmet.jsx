@@ -220,7 +220,7 @@ const AllAssignmet = () => {
                     </span>
                   </button>
                 </div>
-                <Link to={`/assignments/${singleData._id}`}>
+                <Link to={`/assignments/${singleData?._id}`}>
                   <button className=" btn btn-block text-xl font-bold my-5 btn-accent btn-outline">
                     View Assignment
                   </button>

@@ -1,5 +1,5 @@
 import { CiKeyboard } from "react-icons/ci";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import useAxiosUrl from "../../hooks/useAxiosUrl";
 import { useContext } from "react";
 import { AuthContext } from "../../authProvider/AuthProvider";
@@ -9,6 +9,7 @@ const GiveMark = () => {
   const axiosUrl = useAxiosUrl()
   const assignment = useLoaderData();
   const {user}= useContext(AuthContext)
+  const navigate = useNavigate()
   console.log(assignment);
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -32,21 +33,21 @@ const GiveMark = () => {
       .then(res => {
         console.log(res.data);
         if (res.data?.modifiedCount>0) {
-          toast.success('Assignment Updated Successfully')
-
+          toast.success('Mark Given Successfully')
+           setTimeout(()=>{navigate('/pendingAssignments')},500)
           }
         });
   };
   return (
     <div>
-      <h1 className="text-xl lg:text-2xl text-center font-bold">
-        Give Mark to <span className=" text-red-500">{assignment.title}</span>
+      <h1 className="text-xl lg:text-2xl text-center font-black">
+        Give Mark to <span className=" text-orange-700">{assignment.title}</span>
       </h1>
       <div className="divider"></div>
       <div className="font-bold my-10 px-3 ">
         <h3 className=" overflow-x-auto ">
           Assignment PDF file :{" "}
-          <span className="max-w-[100px] text-blue-600 font-bold hover:underline">
+          <span className="max-w-[100px] text-base text-blue-600 font-bold hover:underline">
             {assignment.pdf}
           </span>{" "}
         </h3>
@@ -59,10 +60,11 @@ const GiveMark = () => {
         </h3>
       </div>
         
-       <div className=" bg-base-300 p-5 rounded-lg">
-        <form onSubmit={handleSubmit}>
+       <div  className=" bg-base-200 z-40 p-5 rounded-lg relative">
+       
+        <form className="" onSubmit={handleSubmit}>
           {/* doc url */}
-          <div className="form-control md:w-full">
+          <div className="form-control md:w-full z-40">
             <label className="label">
               <span className="text-base font-semibold">Marks</span>
             </label>
@@ -74,7 +76,7 @@ const GiveMark = () => {
               name="mark"
             />
           </div>
-          <div className=" my-5">
+          <div className=" z-40 my-5">
             <label className=" text-base font-semibold my-5">Feedback</label>
             <br />
             <textarea
