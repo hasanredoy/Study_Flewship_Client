@@ -23,6 +23,10 @@ const UpdateAssignment = () => {
     const date = startDate;
     const photoURL = form.photo.value;
     const description = form.description.value;
+    if(date < new Date()){
+      
+      return toast.error('Invalid Date')
+    }
     const assignmentData = {
       title,
       levels,
@@ -62,26 +66,13 @@ const UpdateAssignment = () => {
               <input
                 type="text"
                 placeholder="Title"
-                defaultValue={assignment.title}
                 className="input input-bordered bg-white text-black w-full"
                 required
                 name="title"
+                defaultValue={assignment.title}
               />
             </div>
-            {/* photo  */}
-            <div className="form-control md:w-full">
-              <label className="label">
-                <span className="text-xl font-bold">Thumbnail Image URL</span>
-              </label>
-              <input
-                type="url"
-                placeholder="URL"
-                defaultValue={assignment.photoURL}
-                className="input input-bordered bg-white text-black w-full"
-                required
-                name="photo"
-              />
-            </div>
+            
          
           </div>
 
@@ -95,31 +86,31 @@ const UpdateAssignment = () => {
               <input
                 type="text"
                 placeholder="Marks"
-                defaultValue={assignment.marks}
                 className="input input-bordered bg-white text-black w-full"
                 required
                 name="marks"
+                defaultValue={assignment?.marks}
               />
             </div>
 
-            {/* description */}
-            <div className="form-control w-full">
+            {/* photo  */}
+            <div className="form-control md:w-full">
               <label className="label">
-                <span className="text-xl font-bold"> Description</span>
+                <span className="text-xl font-bold">Thumbnail Image URL</span>
               </label>
               <input
-                type="text"
-                placeholder="Description"
-                defaultValue={ assignment.description}
+                type="url"
+                placeholder="URL"
                 className="input input-bordered bg-white text-black w-full"
                 required
-                name="description"
+                defaultValue={assignment?.photoURL}
+                name="photo"
               />
             </div>
           </div>
           {/* 3 row  */}
           <div className="flex flex-col lg:flex-row gap-5 w-full ">
-            {/* price  */}
+            {/* date  */}
             <div className="form-control  w-full">
               <label className="label">
                 <span className="text-xl font-bold">Due Date</span>
@@ -127,7 +118,6 @@ const UpdateAssignment = () => {
            
               
               <DatePicker
-              // value={assignment.date}
                 selected={startDate}
                 onChange={(date) => setStartDate(date)}
               />
@@ -141,16 +131,28 @@ const UpdateAssignment = () => {
                 <span className="text-xl font-bold">Difficulty Level</span>
               </label>
               <select defaultValue={assignment.levels} className="bg-white text-black py-2 rounded-md" name="levels" id="">
-                
                 <option value="Easy">Easy</option>
                 <option value="Medium">Medium</option>
                 <option value="Hard">Hard</option>
               </select>
             </div>
           </div>
+          {/* description */}
+          <div className="form-control w-full">
+              <label className="label">
+                <span className="text-xl font-bold"> Description</span>
+              </label>
+            <textarea 
+            rows={6}
+             className=" p-3 bg-white text-black w-full"
+             required
+             defaultValue={assignment?.description}
+             name="description"
+            ></textarea>
+            </div>
           <div className="form-control mt-6">
             <button type="submit" className="btn btn-success btn-block">
-              Update Assignment{" "}
+              Create Assignment{" "}
             </button>
           </div>
         </form>

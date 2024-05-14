@@ -95,8 +95,11 @@ const AssignmentDetails = () => {
            {/*  modal */}
               {
               modal&&<div className="top-[5%] w-full lg:top-[5%] left-0 lg:left-[24%] right-auto lg:right-[20%] absolute bg-base-300 rounded-lg p-4 lg:w-1/2">
+                <div onClick={()=>setModal(false)} className=" flex justify-end pb-5">
+                  <button className=" text-lg btn">X</button>
+                </div>
              <form className=" " onSubmit={handleSubmit} >
-            
+             
               <div className="">
                 <h1 className="text-xl lg:text-2xl text-center font-bold">Submit Your&apos;e Assignment PDF / Document Link Blew</h1>
                 <div className="divider"></div>

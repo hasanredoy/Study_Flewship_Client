@@ -1,15 +1,26 @@
 import { CiKeyboard } from "react-icons/ci";
-import { useLoaderData, useNavigate } from "react-router-dom";
+import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import useAxiosUrl from "../../hooks/useAxiosUrl";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../authProvider/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
 
 const GiveMark = () => {
   const axiosUrl = useAxiosUrl()
-  const assignment = useLoaderData();
+  const[assignment, setAssignmentData]=useState([])
+  const assignmentf = useLoaderData();
+  const pramId = useParams("id")
+  // console.log(pramId.id);
   const {user}= useContext(AuthContext)
   const navigate = useNavigate()
+  // console.log(assignment);
+  useEffect(()=>{
+    axiosUrl.get(`https://crud-jwt-server-two.vercel.app/submittedAssignment/6643146e109a5de9242d8bb5`)
+    .then(res=>{
+      setAssignmentData(res.data)
+      // console.log(res);
+    })
+  },[])
   // console.log(assignment);
   const handleSubmit = (e) => {
     e.preventDefault()

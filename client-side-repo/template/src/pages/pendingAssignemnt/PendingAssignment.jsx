@@ -27,11 +27,7 @@ const PendingAssignment = () => {
 
       <div className="container bg-base-100 p-2 mx-auto sm:p-4 border rounded-lg ">
         <div className="overflow-x-auto">
-        <div className="flex justify-center w-full ">
-        {loading && (
-          <span className="loading loading-spinner loading-lg text-center "></span>
-        )}
-      </div>
+        
           <table className="min-w-full text-xs">
             <thead className="">
               <tr className="text-left text-base md:text-xl font-bold border-b border-gray-500">
@@ -87,6 +83,11 @@ const PendingAssignment = () => {
                 </tr>
               ))}
             </tbody>
+            <div className="flex justify-center w-full ">
+        {loading && (
+          <span className="loading loading-spinner loading-lg text-center "></span>
+        )}
+      </div>
           </table>
         </div>
       </div>

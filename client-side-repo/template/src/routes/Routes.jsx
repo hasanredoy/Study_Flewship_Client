@@ -38,7 +38,7 @@ const router = createBrowserRouter([
       {
         path:'/pendingAssignment/:id',
         element:<PrivetRoute><GiveMark></GiveMark></PrivetRoute>,
-        loader:({params})=>fetch(`https://crud-jwt-server-two.vercel.app/submittedAssignment/${params.id}`)
+        loader:({params})=>fetch('')
       },
       {
         path:'/myAssignments',
