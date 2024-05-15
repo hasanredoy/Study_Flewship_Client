@@ -143,7 +143,7 @@ const CreateAssignment = () => {
               </label>
             <textarea 
             rows={6}
-             className=" bg-white text-black w-full"
+             className="p-3 bg-white text-black w-full"
              required
              name="description"
             ></textarea>

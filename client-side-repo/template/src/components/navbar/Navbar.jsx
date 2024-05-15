@@ -176,9 +176,10 @@ const Navbar = () => {
         <div className="navbar-center">
           <Link
             to={"/"}
-            className="btn btn-ghost text-2xl font-black bg-gradient-to-l bg-clip-text text-transparent from-teal-400 via-zinc-400 to-lime-600"
+            className="btn btn-ghost text-2xl font-black bg-gradient-to-l bg-clip-text text-transparent from-teal-600 via-zinc-600 to-yellow-400"
           >
             Study Flew Ship
+            
           </Link>
         </div>
         <div className="navbar-end flex flex-col gap-2 justify-end md:flex-row ">

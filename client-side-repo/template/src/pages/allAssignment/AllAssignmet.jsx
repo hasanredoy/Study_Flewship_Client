@@ -115,8 +115,8 @@ const AllAssignmet = () => {
           </h1>
         </div>
         {/* card div  */}
-        <div className="form-control border border-orange-400 rounded-lg bg-base-200 w-[60%] md:w-[40%] lg:w-[30%] flex flex-row ">
-          <label className="label border-r-2 pr-7 border-yellow-400">
+        <div className="form-control border border-orange-200 rounded-lg bg-base-200 w-[60%] md:w-[40%] lg:w-[21%] flex flex-row ">
+          <label className="label border-r-2 pr-7 border-yellow-200">
             <span className=" text-base lg:text-lg font-bold">
               {" "}
               Difficulty Level

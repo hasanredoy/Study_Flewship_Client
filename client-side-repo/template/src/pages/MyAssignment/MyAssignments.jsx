@@ -44,12 +44,13 @@ const MyAssignments = () => {
         )}
       </div>
         <div className=" grid justify-center items-center mx-auto grid-cols-1  gap-5 ">
-          {myAssignments?.map((myAssig) => (
+          {myAssignments?.map((myAssig,index) => (
             <div
               key={myAssig._id}
-              className=" w-full lg:w-[650px] border border-lime-500 rounded-lg bg-lime-100 text-black  p-5 "
+              className=" w-full lg:w-[800px] border border-lime-500 rounded-lg bg-gradient-to-t from-gray-300 via-slate-300 to-purple-200 text-black  p-5 "
             >
-              <h1 className=" text-xl  font-bold">{myAssig.title}</h1>
+              <h1 className=" text-2xl text-black pb-3">{index+1}.</h1>
+              <h1  className=" text-xl  font-bold">{myAssig.title}</h1>
               <div className=" my-5">
                 <h2 className=" text-lg font-bold my-5">
                   Status:{" "}
@@ -91,7 +92,7 @@ const MyAssignments = () => {
               </div>
               <div className="divider divider-neutral"></div>
               <iframe
-                className=" border border-red-200 max-w-full lg:max-w-[650px] w-full overflow-y-auto h-[400px]"
+                className=" border border-red-300 max-w-full lg:max-w-[800px] w-full overflow-y-auto h-[400px]"
                 src={myAssig.pdf}
                 frameborder="0"
               ></iframe>

@@ -7,9 +7,15 @@ import { ToastContainer, toast } from "react-toastify";
 const AssignmentDetails = () => {
   const singleData = useLoaderData();
   const axiosUrl = useAxiosUrl()
-  const {user} = useContext(AuthContext)
+  const {user,logOut} = useContext(AuthContext)
   const [modal , setModal]=useState(false)
   // console.log(modal);
+  if(singleData.message==="unauthorized"){
+    console.log('unauthorized');
+    logOut()
+    .then(()=>{})
+    .catch()
+  }
   const handleSubmit=(e)=>{
     e.preventDefault()
   

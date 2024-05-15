@@ -7,20 +7,20 @@ import { ToastContainer, toast } from "react-toastify";
 
 const GiveMark = () => {
   const axiosUrl = useAxiosUrl()
-  const[assignment, setAssignmentData]=useState([])
-  const assignmentf = useLoaderData();
-  const pramId = useParams("id")
+ 
+  const assignment = useLoaderData();
+  const pramId = useParams()
   // console.log(pramId.id);
-  const {user}= useContext(AuthContext)
+  const {user,logOut}= useContext(AuthContext)
   const navigate = useNavigate()
-  // console.log(assignment);
-  useEffect(()=>{
-    axiosUrl.get(`https://crud-jwt-server-two.vercel.app/submittedAssignment/6643146e109a5de9242d8bb5`)
-    .then(res=>{
-      setAssignmentData(res.data)
-      // console.log(res);
-    })
-  },[])
+  console.log(assignment);
+  if(assignment.message==="unauthorized"){
+    console.log('unauthorized');
+    logOut()
+    .then(()=>{})
+    .catch()
+  }
+
   // console.log(assignment);
   const handleSubmit = (e) => {
     e.preventDefault()

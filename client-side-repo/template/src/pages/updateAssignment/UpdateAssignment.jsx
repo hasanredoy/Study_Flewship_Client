@@ -1,19 +1,29 @@
 
-import { useLoaderData } from "react-router-dom";
-import React, { useState } from "react";
+import { useLoaderData} from "react-router-dom";
+import React, { useContext, useState } from "react";
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
 import { ToastContainer, toast } from "react-toastify";
 import useAxiosUrl from "../../hooks/useAxiosUrl";
+import { AuthContext } from "../../authProvider/AuthProvider";
 
 
 const UpdateAssignment = () => {
-  const assignment = useLoaderData()
-  const [startDate, setStartDate] = useState(new Date(assignment.date));
-  
-  console.log(assignment);
+  const {logOut}=useContext(AuthContext)
   const axiosUrl = useAxiosUrl()
+
+  const assignment = useLoaderData()
+
+
+
+   console.log(assignment);
+  const [startDate, setStartDate] = useState(new Date(assignment?.date));
+  
+
+ 
+
+  
   const handleForm = (e) => {
     e.preventDefault();
     const form = e.target;
