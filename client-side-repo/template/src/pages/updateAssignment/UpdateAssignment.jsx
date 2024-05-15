@@ -10,7 +10,7 @@ import { AuthContext } from "../../authProvider/AuthProvider";
 
 
 const UpdateAssignment = () => {
-  const {logOut}=useContext(AuthContext)
+ 
   const axiosUrl = useAxiosUrl()
 
   const assignment = useLoaderData()

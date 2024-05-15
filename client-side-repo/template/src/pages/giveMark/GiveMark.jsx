@@ -14,12 +14,7 @@ const GiveMark = () => {
   const {user,logOut}= useContext(AuthContext)
   const navigate = useNavigate()
   console.log(assignment);
-  if(assignment.message==="unauthorized"){
-    console.log('unauthorized');
-    logOut()
-    .then(()=>{})
-    .catch()
-  }
+
 
   // console.log(assignment);
   const handleSubmit = (e) => {

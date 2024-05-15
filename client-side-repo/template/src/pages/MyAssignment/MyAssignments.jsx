@@ -20,19 +20,19 @@ const MyAssignments = () => {
   return (
     <div className="  flex flex-col md:flex-row-reverse gap-3">
       {/* user profile   */}
-      <div className=" w-full  md:w-[40%] lg:w-[30%] bg-base-300 flex justify-center items-center flex-col p-3 lg:p-5 rounded-lg space-y-3 h-full">
+      <div className=" w-full  md:w-[40%] lg:w-[30%] bg-slate-800  flex justify-center items-center flex-col p-3 lg:p-5 rounded-lg space-y-3 h-full">
         <img className=" rounded-full w-[150px]" src={user?.photoURL} alt="" />
         <div className="divider"></div>
-        <h1 className=" text-xl font-bold">
+        <h1 className=" text-white text-xl font-bold">
           WellCome{" "}
-          <span className=" text-blue-800">
+          <span className=" text-yellow-400">
             {user?.displayName.toUpperCase()}
           </span>
         </h1>
       </div>
       {/* Assigment div  */}
       <div className="divider block md:hidden"></div>
-      <div className=" flex rounded-md justify-center flex-col border-0 md:border border-gray-400 w-full md:w-[70%] p-3 ml-0 md:ml-2 lg:ml-0">
+      <div className=" flex rounded-md justify-center flex-col border-0 md:border border-gray-400 bg-base-300 w-full md:w-[70%] p-3 ml-0 md:ml-2 lg:ml-0">
         <h1 className=" text-2xl mb-9 text-center mx-auto font-bold">
           {myAssignments.length > 0
             ? "My Attempted Assignments"
@@ -47,7 +47,7 @@ const MyAssignments = () => {
           {myAssignments?.map((myAssig,index) => (
             <div
               key={myAssig._id}
-              className=" w-full lg:w-[800px] border border-lime-500 rounded-lg bg-gradient-to-t from-gray-300 via-slate-300 to-purple-200 text-black  p-5 "
+              className=" w-full lg:w-[800px] border border-lime-500 rounded-lg bg-gradient-to-t from-lime-200 via-slate-300 to-purple-300 text-black  p-5 "
             >
               <h1 className=" text-2xl text-black pb-3">{index+1}.</h1>
               <h1  className=" text-xl  font-bold">{myAssig.title}</h1>

@@ -11,25 +11,9 @@ const axiosUrl = axios.create({
   withCredentials:true,
 })
 
-const auth = getAuth(app)
 
 const useAxiosUrl = () => {
-  // const navigate =useNavigate()
- useEffect(()=>{
-  axiosUrl.interceptors.response.use(res=>{
-    return res
-  },err=>{
-    if(err.response.status===401||err.response.status===403){
-      console.log('object');
-      signOut(auth)
-      .then(()=>{
-        console.log('logged out');
-        // navigate('/login')
-      })
-      .catch()
-    }
-  })
- },[])
+
   return axiosUrl
 };
 

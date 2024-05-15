@@ -79,7 +79,7 @@ const AllAssignmet = () => {
       {/* banner  */}
       <div className=" my-10">
         {/* text div  */}
-        <div className=" border border-yellow-300  bg-base-200">
+        <div className=" border border-yellow-200 p-3  bg-base-200">
           <div className=" flex flex-col lg:flex-row gap-5">
             <div className=" w-full lg:w-[50%] ">
               <img
@@ -88,10 +88,10 @@ const AllAssignmet = () => {
               />
             </div>
             <div className=" w-full lg:w-[50%] ">
-              <h1 className=" text-2xl text-center font-black my-5">
-                Assignment Roulette: Choose Your Challenge!
+              <h1 className=" text-2xl  lg:text-4xl text-center font-black my-5">
+                Assignment Roulette <span className=" text-yellow-500">Choose Your Challenge!</span>
               </h1>
-              <p className=" max-w-sm md:max-w-lg text-center mx-auto">
+              <p className=" max-w-sm md:max-w-lg text-center mx-auto  text-base lg:text-lg">
                 In this assignment format, students are presented with a range
                 of intriguing academic challenges, each offering a unique
                 opportunity for exploration and growth. From virtual museum
@@ -144,7 +144,7 @@ const AllAssignmet = () => {
           {assignments?.map((singleData) => (
             <div
               key={singleData._id}
-              className="card  bg-base-300 shadow-lg flex-col  p-2 lg:p-3 border border-purple-400"
+              className="card  bg-base-100 shadow-lg flex-col  p-2 lg:p-3 border border-purple-400"
             >
               <figure className="w-[80%] mx-auto h-52 rounded-lg ">
                 <img

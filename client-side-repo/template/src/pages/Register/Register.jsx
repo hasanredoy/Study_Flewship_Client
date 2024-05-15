@@ -45,9 +45,9 @@ const Register = () => {
           photoURL: photo,
         });
         toast.success("Registered Successfully");
-        // setTimeout(() => {
-        //   navigate("/login");
-        // }, 1000);
+        setTimeout(() => {
+          navigate("/login");
+        }, 1000);
       })
       .catch((err) => {
         console.log(err);

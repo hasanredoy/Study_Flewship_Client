@@ -10,12 +10,7 @@ const AssignmentDetails = () => {
   const {user,logOut} = useContext(AuthContext)
   const [modal , setModal]=useState(false)
   // console.log(modal);
-  if(singleData.message==="unauthorized"){
-    console.log('unauthorized');
-    logOut()
-    .then(()=>{})
-    .catch()
-  }
+
   const handleSubmit=(e)=>{
     e.preventDefault()
   
@@ -23,9 +18,7 @@ const AssignmentDetails = () => {
     const pdf = e.target.doc.value
     const userEmail = user.email
     const access = user.accessToken
-    if(!pdf || !note){
-      setModal(true)
-    }
+  
     // console.log(note,pdf);
     const data ={
       pdf,
